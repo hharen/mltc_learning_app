@@ -1,0 +1,10 @@
+h1 Hello #{@user.name}
+p This is your profile
+
+h2 Your Courses
+ul 
+  - @user.courses&.each do |course|
+    li = course.name
+
+h2 Your Profile
+= render 'form'

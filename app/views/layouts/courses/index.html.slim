@@ -1,0 +1,7 @@
+h1 Courses
+- @courses.each do |course|
+  h2 = course.name
+  p = course.description
+  ul
+    - course.what_students_learn&.each do |point|
+      li = point

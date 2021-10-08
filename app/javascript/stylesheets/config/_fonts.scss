@@ -1,0 +1,8 @@
+// FIX ME - font doesn't load
+@font-face {
+  font-family: 'FuturaBT W05 Book';
+  // src: font-url('../../fonts/464e1370-5b73-493b-a369-ee8ed8d2d36e.woff2') format('woff2');
+}
+
+$headers-font: 'Space Mono', 'monospace', 'sans';
+$body-font: 'FuturaBT W05 Book', 'Didact Gothic', sans-serif;

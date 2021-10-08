@@ -1,0 +1,38 @@
+doctype html
+html
+  head
+    title Moms Learn to Code Learning App
+
+    == csrf_meta_tags
+    == csp_meta_tag
+
+    meta name='author' content='Hana Harencarova | Sei Online'
+    meta name='description' content='Courses from Moms Learn to Code'
+
+    meta name='viewport' content='width=device-width initial-scale=1 shrink-to-fit=no'
+
+    == stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+
+    == javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true
+
+    link rel='preconnect' href='https://fonts.googleapis.com'
+    link rel='preconnect' href='https://fonts.gstatic.com' crossorigin='anonymous'
+    link href='https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Space+Mono:wght@400;700&display=swap' rel='stylesheet' 
+
+  body
+    == render 'shared/navbar'
+    == render 'shared/flashes'
+
+    == yield
+
+  footer
+    div.text-center.bg-primary.text-white.py-8.mt-8
+      = link_to 'Privacy Policy', 'https://www.momslearntocode.com/privacy_policy', target: '_blank', class: 'hover-primary'
+      = ' | '
+      = link_to 'Terms and Conditions', 'https://www.momslearntocode.com/terms_of_service', target: '_blank', class: 'hover-primary'
+      = ' | '
+      = link_to 'Cookie Policy', 'https://www.momslearntocode.com/cookie_policy', target: '_blank', class: 'hover-primary'
+      = ' | '
+      = link_to 'Impressum', 'https://www.momslearntocode.com/impressum', target: '_blank', class: 'hover-primary'
+      p © 2019 - #{Time.current.year}
+      = link_to 'Moms Learn to Code', 'https://www.momslearntocode.com', target: '_blank', class: 'hover-primary'

@@ -1,0 +1,42 @@
+// Graphical variables
+@import "config/fonts";
+@import "config/colors";
+
+// External libraries
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+// Your CSS partials
+@import "components/index";
+@import "pages/index";
+
+h1 {
+  font-size: 3em;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+h3 {
+  font-size: 1.5em;
+}
+
+h1, h2, h3, h4, p, ul {
+  padding: 0 10px;
+}
+
+h1, h2 {
+  padding: 20px 10px 3px;
+}
+
+input {
+  border: 1px solid #d3d4d6;
+  margin: 3px 5px 3px 8px;
+  padding: 0 5px;
+}
+
+footer {
+  font-size: 0.8em;
+}

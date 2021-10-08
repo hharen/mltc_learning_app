@@ -1,0 +1,19 @@
+- @user.errors.any? 
+  p 
+    = @user.errors.messages
+
+= form_with model: @user do |f|
+  p 
+    = f.label :first_name
+    = f.text_field :first_name
+  p
+    = f.label :last_name 
+    = f.text_field :last_name 
+  p
+    = f.label :new_password 
+    = f.password_field :password 
+
+  p = f.submit
+
+  - @user.errors.each do |error|
+    = error.message
