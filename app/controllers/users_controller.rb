@@ -8,6 +8,10 @@ class UsersController < ApplicationController
   def update
     @user = current_user
 
+    if user_params[:password].blank?
+      # TODO: do something reasonable
+    end
+
     if @user.update(user_params)
       redirect_to edit_user_path(@user)
     else

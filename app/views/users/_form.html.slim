@@ -1,6 +1,7 @@
-- @user.errors.any? 
-  p 
-    = @user.errors.messages
+- @user.errors.each do |error|
+  span.border-2.border-red-500.text-red-500.m-2.px-4
+    = error.full_message
+    br
 
 = form_with model: @user do |f|
   p 
@@ -15,5 +16,4 @@
 
   p = f.submit
 
-  - @user.errors.each do |error|
-    = error.message
+
