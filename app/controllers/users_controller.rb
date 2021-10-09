@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
   before_action :authenticate_user!
 
@@ -11,7 +13,7 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to edit_user_path(@user)
     else
-      render :edit, flash: {error: @user.errors.messages}
+      render :edit, flash: { error: @user.errors.messages }
     end
   end
 

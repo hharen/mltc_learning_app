@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Topic < ApplicationRecord
   has_many :lessons
   has_many :materials, through: :lessons

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'faker'
 
 # Creates an admin user
@@ -43,13 +45,15 @@ jd = User.create(
 web_dev = Course.create(
   name: 'Web develompent for moms in 50 days',
   description: 'Everyone’s talking about coding, but where do you start? One of the best ways is by building websites. Whether you want to tweak your business’s site, hone your web development skills, or learn to collaborate with developers, this will help you get there.',
-  what_students_learn: ['Read & Write HTML and CSS', 'Create your own design', 'Launch a website from your own computer', 'Build two live websites']
+  what_students_learn: ['Read & Write HTML and CSS', 'Create your own design',
+                        'Launch a website from your own computer', 'Build two live websites']
 )
 
 seo = Course.create(
   name: 'SEO crash course for business owners',
   description: 'Do you want to understand what it takes for search engines to like your website? Search Engine Optimization, or SEO, is a powerful way to drive targeted traffic to your website and help improve your search rankings. In this course you’ll learn SEO that you can immediately apply to your own website, with no prior experience required.',
-  what_students_learn: ['SEO Strategies', 'Structure websites for SEO optimization', 'On-page & off-page SEO', 'Set up & use Google Analytics']
+  what_students_learn: ['SEO Strategies', 'Structure websites for SEO optimization', 'On-page & off-page SEO',
+                        'Set up & use Google Analytics']
 )
 
 Subscription.create(user: anne, course: web_dev)
