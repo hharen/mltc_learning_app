@@ -24,10 +24,10 @@ html
       == render 'shared/navbar'
       == render 'shared/flashes'
 
-    main.flex-grow-1.px-10
+    main.flex-grow.px-8
       == yield
 
-    footer.flex-shrink-0
+    footer.flex-shrink-0.text-sm
       div.text-center.bg-primary.text-white.py-8.mt-8
         = link_to 'Privacy Policy', 'https://www.momslearntocode.com/privacy_policy', target: '_blank', class: 'hover-primary'
         = ' | '
