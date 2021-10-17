@@ -2,7 +2,7 @@ h1 = @course.name
 - @course.topics.each_with_index do |topic, index_course|
   - index_course += 1
   h2 class="show-hide-button#{index_course}"
-    span.text-red-500 >
+    span.text-red-500 > 
     = "#{index_course}. #{topic.name}"
   ol.ml-4 class="lessons#{index_course}"
     - topic.lessons.each_with_index do |lesson, index_lesson|

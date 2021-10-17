@@ -1,7 +1,7 @@
 h1 Courses
 - @courses.each do |course|
-  h2 = course.name
+  h2 = link_to course.name, course_path(course.id)
   p = course.description
-  ul
+  ul.list-disc.ml-4
     - course.what_students_learn&.each do |point|
       li = point

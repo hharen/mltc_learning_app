@@ -31,6 +31,10 @@ h1, h2 {
   padding: 20px 10px 3px;
 }
 
+a:hover {
+  color: $primary-color;
+}
+
 input {
   border: 1px solid #d3d4d6;
   margin: 3px 5px 3px 8px;
