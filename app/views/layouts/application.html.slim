@@ -19,20 +19,22 @@ html
     link rel='preconnect' href='https://fonts.gstatic.com' crossorigin='anonymous'
     link href='https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Space+Mono:wght@400;700&display=swap' rel='stylesheet' 
 
-  body
-    == render 'shared/navbar'
-    == render 'shared/flashes'
+  body.flex.flex-col.min-h-screen
+    header.flex-shrink-0
+      == render 'shared/navbar'
+      == render 'shared/flashes'
 
-    == yield
+    main.flex-grow-1.px-10
+      == yield
 
-  footer
-    div.text-center.bg-primary.text-white.py-8.mt-8
-      = link_to 'Privacy Policy', 'https://www.momslearntocode.com/privacy_policy', target: '_blank', class: 'hover-primary'
-      = ' | '
-      = link_to 'Terms and Conditions', 'https://www.momslearntocode.com/terms_of_service', target: '_blank', class: 'hover-primary'
-      = ' | '
-      = link_to 'Cookie Policy', 'https://www.momslearntocode.com/cookie_policy', target: '_blank', class: 'hover-primary'
-      = ' | '
-      = link_to 'Impressum', 'https://www.momslearntocode.com/impressum', target: '_blank', class: 'hover-primary'
-      p © 2019 - #{Time.current.year}
-      = link_to 'Moms Learn to Code', 'https://www.momslearntocode.com', target: '_blank', class: 'hover-primary'
+    footer.flex-shrink-0
+      div.text-center.bg-primary.text-white.py-8.mt-8
+        = link_to 'Privacy Policy', 'https://www.momslearntocode.com/privacy_policy', target: '_blank', class: 'hover-primary'
+        = ' | '
+        = link_to 'Terms and Conditions', 'https://www.momslearntocode.com/terms_of_service', target: '_blank', class: 'hover-primary'
+        = ' | '
+        = link_to 'Cookie Policy', 'https://www.momslearntocode.com/cookie_policy', target: '_blank', class: 'hover-primary'
+        = ' | '
+        = link_to 'Impressum', 'https://www.momslearntocode.com/impressum', target: '_blank', class: 'hover-primary'
+        p © 2019 - #{Time.current.year}
+        = link_to 'Moms Learn to Code', 'https://www.momslearntocode.com', target: '_blank', class: 'hover-primary'

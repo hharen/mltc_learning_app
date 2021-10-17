@@ -37,6 +37,21 @@ input {
   padding: 0 5px;
 }
 
+// body {
+//   min-height: 100vh;
+//   display: flex;
+//   flex-direction: column;
+// }
+
+main {
+  flex-grow: 1;
+  padding: 8px;
+}
+
+// header, footer {
+//   flex-shrink: 0;
+// }
+
 footer {
   font-size: 0.8em;
 }
