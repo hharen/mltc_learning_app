@@ -1,5 +1,4 @@
-h1 
-  = @course.name
+h1 = @course.name
 - @course.topics.each_with_index do |topic, index_course|
   - index_course += 1
   h2 class="show-hide-button#{index_course}"
@@ -7,16 +6,16 @@ h1
     = "#{index_course}. #{topic.name}"
   ol.ml-4 class="lessons#{index_course}"
     - topic.lessons.each_with_index do |lesson, index_lesson|
-        li
-          h3 = "#{index_course}.#{index_lesson + 1} #{lesson.name}"
-          p = lesson.description
+      li
+        h3 = "#{index_course}.#{index_lesson + 1} #{lesson.name}"
+        p = lesson.description
 
 - Topic.count.times do |i|
   - i += 1
   javascript:
-      const btn_show_hide#{i} = document.querySelector(".show-hide-button#{i}");
-      const lessons#{i} = document.querySelector(".lessons#{i}");
+    const btn_show_hide#{i} = document.querySelector(".show-hide-button#{i}");
+    const lessons#{i} = document.querySelector(".lessons#{i}");
 
-      btn_show_hide#{i}.addEventListener("click", () => {
-        lessons#{i}.classList.toggle("hidden");
-      });
+    btn_show_hide#{i}.addEventListener("click", () => {
+      lessons#{i}.classList.toggle("hidden");
+    });
