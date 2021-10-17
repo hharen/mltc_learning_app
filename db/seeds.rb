@@ -2,46 +2,7 @@
 
 require 'faker'
 
-# Creates an admin user
-User.create(
-  first_name: 'Hana',
-  last_name: 'Harencarova',
-  email: 'h.harencarova@gmail.com',
-  password: 'setSomePasswordHere',
-  is_admin: true
-)
-
-# Faker doesn't work yet
-# 7.times do
-#   User.create(
-#     first_name: Faker::Name.first_name,
-#     last_name: Faker::Name.last_name,
-#     email: Faker::Internet.email,
-#     is_admin: false
-#   )
-# end
-
-anne = User.create(
-  first_name: 'Anne-France',
-  last_name: 'Dautheville',
-  email: 'ann@mltcstudents.com',
-  password: 'HeyThere'
-)
-
-marie = User.create(
-  first_name: 'Marie',
-  last_name: 'Curie',
-  email: 'marie@mltcstudents.com',
-  password: 'HeyThere'
-)
-
-jd = User.create(
-  first_name: 'J. D.',
-  last_name: 'Salinger',
-  email: 'jd@mltcstudents.com',
-  password: 'HeyThere'
-)
-
+# Create Courses
 web_dev = Course.create(
   name: 'Web develompent for moms in 50 days',
   description: 'Everyone’s talking about coding, but where do you start? One of the best ways is by building websites. Whether you want to tweak your business’s site, hone your web development skills, or learn to collaborate with developers, this will help you get there.',
@@ -56,7 +17,49 @@ seo = Course.create(
                         'Set up & use Google Analytics']
 )
 
-Subscription.create(user: anne, course: web_dev)
-Subscription.create(user: anne, course: seo)
-Subscription.create(user: marie, course: web_dev)
-Subscription.create(user: jd, course: seo)
+courses = [[web_dev, seo], [web_dev], [seo]]
+
+# Creates an admin user
+User.create(
+  first_name: 'Hana',
+  last_name: 'Harencarova',
+  email: 'h.harencarova@gmail.com',
+  password: 'setSomePasswordHere',
+  is_admin: true
+)
+
+# Create Users
+anne = User.create(
+  first_name: 'Anne-France',
+  last_name: 'Dautheville',
+  email: 'ann@mltcstudents.com',
+  password: 'HeyThere',
+  courses: courses[0]
+)
+
+marie = User.create(
+  first_name: 'Marie',
+  last_name: 'Curie',
+  email: 'marie@mltcstudents.com',
+  password: 'HeyThere',
+  courses: courses[1]
+)
+
+jd = User.create(
+  first_name: 'J. D.',
+  last_name: 'Salinger',
+  email: 'jd@mltcstudents.com',
+  password: 'HeyThere',
+  courses: courses[2]
+)
+
+7.times do
+  User.create!(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    email: Faker::Internet.email,
+    password: Faker::Internet.password,
+    is_admin: false,
+    courses: courses.sample
+  )
+end
