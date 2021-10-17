@@ -60,10 +60,10 @@ User.create!(
 
 7.times do
   User.create!(
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    email: Faker::Internet.email,
-    password: Faker::Internet.password,
+    first_name: Faker::Name.unique.first_name,
+    last_name: Faker::Name.unique.last_name,
+    email: Faker::Internet.unique.email,
+    password: Faker::Internet.unique.password,
     is_admin: false,
     courses: courses.sample
   )
@@ -71,10 +71,21 @@ end
 
 # Create Topics
 i = 0
-20.times do
+15.times do
   Topic.create!(
-    name: Faker::Fantasy::Tolkien.poem,
+    name: Faker::Fantasy::Tolkien.unique.poem,
     order: i += 1,
     course: Course.all.sample
+  )
+end
+
+# Create Lessons
+i = 0
+40.times do
+  Lesson.create!(
+    name: Faker::Movies::HitchhikersGuideToTheGalaxy.unique.location,
+    description: Faker::Movies::HitchhikersGuideToTheGalaxy.quote,
+    order: i += 1,
+    topic: Topic.all.sample
   )
 end
