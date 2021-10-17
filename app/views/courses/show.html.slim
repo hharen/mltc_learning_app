@@ -1,0 +1,11 @@
+h1 
+  = @course.name
+- @course.topics.each_with_index do |topic, index_course|
+  ol
+    li
+      h2 = "#{index_course + 1}. #{topic.name}"
+      - topic.lessons.each_with_index do |lesson, index_lesson|
+        ol.ml-4
+          li 
+            h3 = "#{index_course + 1}.#{index_lesson + 1} #{lesson.name}"
+            p = lesson.description

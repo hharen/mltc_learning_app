@@ -3,6 +3,8 @@
 class Course < ApplicationRecord
   has_many :subscriptions
   has_many :users, through: :subscriptions
+  has_many :topics
+  has_many :lessons, through: :topics
 
   validates :name, presence: true, uniqueness: true
 end
