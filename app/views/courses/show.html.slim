@@ -1,13 +1,13 @@
 h1 = @course.name
-- @course.topics.each_with_index do |topic, index_course|
-  - index_course += 1
-  h2 class="show-hide-button#{index_course}"
+- @course.topics.each_with_index do |topic, index_topic|
+  - index_topic += 1
+  h2 class="show-hide-button#{index_topic}"
     span.text-red-500 > 
-    = "#{index_course}. #{topic.name}"
-  ol.ml-4 class="lessons#{index_course}"
+    = "#{index_topic}. #{topic.name}"
+  ol.ml-4 class="lessons#{index_topic}"
     - topic.lessons.each_with_index do |lesson, index_lesson|
       li
-        h3 = "#{index_course}.#{index_lesson + 1} #{lesson.name}"
+        h3 = "#{index_topic}.#{index_lesson + 1} #{lesson.name}"
         p = lesson.description
 
 - Topic.count.times do |i|
