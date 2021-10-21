@@ -1,21 +1,21 @@
 h1 = @course.name
 - @course.topics.each_with_index do |topic, index_topic|
   - index_topic += 1
-  h2 class="show-hide-button#{index_topic}"
+  h2 class="show-hide" data-index-topic="#{index_topic}"
     span.text-red-500 > 
     = "#{index_topic}. #{topic.name}"
-  ol.ml-4 class="lessons#{index_topic}"
+  ol.ml-4 class="lessons#{index_topic}" data-index-topic="#{index_topic}"
     - topic.lessons.each_with_index do |lesson, index_lesson|
       li
         h3 = "#{index_topic}.#{index_lesson + 1} #{lesson.name}"
         p = lesson.description
 
-- Topic.count.times do |i|
-  - i += 1
-  javascript:
-    const btn_show_hide#{i} = document.querySelector(".show-hide-button#{i}");
-    const lessons#{i} = document.querySelector(".lessons#{i}");
 
-    btn_show_hide#{i}.addEventListener("click", () => {
-      lessons#{i}.classList.toggle("hidden");
-    });
+javascript:
+  document.querySelectorAll(".show-hide").forEach(item => {
+    item.addEventListener("click", (event) => {
+      console.log(event.target.dataset.indexTopic)
+      document.querySelector(`.lessons${event.target.dataset.indexTopic}`).classList.toggle("hidden")
+    })
+  });
+    
