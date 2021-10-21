@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     resources :users, only: [:index]
   end
 
-  resources :courses, only: [:index]
+  resources :courses, only: %i[index show]
   resources :my_courses, only: [:index]
   get '/my_courses' => 'my_courses#index', :as => :user_root
   resources :users, only: %i[edit update]
