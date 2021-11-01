@@ -93,6 +93,8 @@ i = 0
 end
 
 # Create Materials
+VideoMaterial.create!(body: 'https://mltcwebdev.s3-eu-west-1.amazonaws.com/web-dev-1/WD1_02_HTML_CSS_Intro', lesson: Lesson.first)
+PresentationMaterial.create!(body: 'https://docs.google.com/presentation/d/e/2PACX-1vQaWCQsDtdh-Ab-EMlvuMY0ZHpiI95xzk8UQTmaumh-1DgHARQ2TkojgdFYLKqqeDSLhHPVwut6umrY', lesson: Lesson.first)
 TextMaterial.create!(body: '<h2>Hi I am your material body</h2><p>Show me</p>', lesson: Lesson.first)
 ResourceMaterial.create!(body: '<p><a href="https://seionline.ch" target="_blank">Sei Online link</a></p>', lesson: Lesson.first)
 TaskMaterial.create!(body: '<ul><li>Do this</li><li>And this</li><li>And this too</li></ul>', lesson: Lesson.first)

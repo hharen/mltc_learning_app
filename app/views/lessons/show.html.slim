@@ -2,7 +2,7 @@ h1 = @lesson.name
 p = @lesson.description
 - @lesson.materials.each do |material| 
   h3 = material.title unless material.title.nil?
-  =="#{material.body}"
+  =="#{material.show_body}"
 
 p 
   a (href="#{@lesson.course.ask_question_link}") Ask on Slack
