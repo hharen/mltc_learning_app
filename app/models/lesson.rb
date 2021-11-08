@@ -10,14 +10,7 @@ class Lesson < ApplicationRecord
 
   validates :name, presence: true
 
-  before_save :reorder
-
-  private
-
-  def reorder
-    lessons_to_reorder = Lesson.where(topic_id: self.topic_id, order: (self.order..))
-    lessons_to_reorder.reverse.each do |lesson|
-      lesson.update_column(:order, lesson.order+1)
-    end
+  before_save do |lesson|
+    Reorderer.new(lesson, :topic_id).reorder!
   end
 end
