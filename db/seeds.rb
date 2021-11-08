@@ -24,7 +24,9 @@ experience required.",
                         'Set up & use Google Analytics']
 )
 
-courses = [[web_dev, seo], [web_dev], [seo]]
+courses = [web_dev, seo]
+courses_for_users = [[web_dev, seo], [web_dev], [seo]]
+
 
 # Creates an admin user
 User.create!(
@@ -41,7 +43,7 @@ User.create!(
   last_name: 'Dautheville',
   email: 'ann@mltcstudents.com',
   password: 'HeyThere',
-  courses: courses[0]
+  courses: courses_for_users[0]
 )
 
 User.create!(
@@ -49,7 +51,7 @@ User.create!(
   last_name: 'Curie',
   email: 'marie@mltcstudents.com',
   password: 'HeyThere',
-  courses: courses[1]
+  courses: courses_for_users[1]
 )
 
 User.create!(
@@ -57,7 +59,7 @@ User.create!(
   last_name: 'Salinger',
   email: 'jd@mltcstudents.com',
   password: 'HeyThere',
-  courses: courses[2]
+  courses: courses_for_users[2]
 )
 
 7.times do
@@ -67,34 +69,39 @@ User.create!(
     email: Faker::Internet.unique.email,
     password: Faker::Internet.unique.password,
     is_admin: false,
-    courses: courses.sample
+    courses: courses_for_users.sample
   )
 end
 
 # Create Topics
-i = 0
-15.times do
-  Topic.create!(
-    name: Faker::Fantasy::Tolkien.unique.poem,
-    order: i += 1,
-    course: Course.all.sample
-  )
+
+courses.each do |course|
+  8.times do |i|
+    Topic.create!(
+      name: Faker::Fantasy::Tolkien.unique.poem,
+      order: i + 1,
+      course: course,
+    )
+  end
 end
 
 # Create Lessons
-i = 0
-40.times do
-  Lesson.create!(
-    name: Faker::Movies::HitchhikersGuideToTheGalaxy.unique.location,
-    description: Faker::Movies::HitchhikersGuideToTheGalaxy.quote,
-    order: i += 1,
-    topic: Topic.all.sample
-  )
+[web_dev, seo].each do |course|
+  course.topics.each do |topic|
+    6.times do |i|
+      Lesson.create!(
+        name: Faker::Movies::HitchhikersGuideToTheGalaxy.location,
+        description: Faker::Movies::HitchhikersGuideToTheGalaxy.quote,
+        order: i + 1,
+        topic: topic
+      )
+    end
+  end
 end
 
 # Create Materials
-VideoMaterial.create!(body: 'https://mltcwebdev.s3-eu-west-1.amazonaws.com/web-dev-1/WD1_02_HTML_CSS_Intro', lesson: Lesson.first)
-PresentationMaterial.create!(body: 'https://docs.google.com/presentation/d/e/2PACX-1vQaWCQsDtdh-Ab-EMlvuMY0ZHpiI95xzk8UQTmaumh-1DgHARQ2TkojgdFYLKqqeDSLhHPVwut6umrY', lesson: Lesson.first)
-TextMaterial.create!(body: '<h2>Hi I am your material body</h2><p>Show me</p>', lesson: Lesson.first)
-ResourceMaterial.create!(body: '<p><a href="https://seionline.ch" target="_blank">Sei Online link</a></p>', lesson: Lesson.first)
-TaskMaterial.create!(body: '<ul><li>Do this</li><li>And this</li><li>And this too</li></ul>', lesson: Lesson.first)
+VideoMaterial.create!(body: 'https://mltcwebdev.s3-eu-west-1.amazonaws.com/web-dev-1/WD1_02_HTML_CSS_Intro', lesson: Lesson.first, order: 1)
+PresentationMaterial.create!(body: 'https://docs.google.com/presentation/d/e/2PACX-1vQaWCQsDtdh-Ab-EMlvuMY0ZHpiI95xzk8UQTmaumh-1DgHARQ2TkojgdFYLKqqeDSLhHPVwut6umrY', lesson: Lesson.first, order: 2)
+TextMaterial.create!(body: '<h2>Hi I am your material body</h2><p>Show me</p>', lesson: Lesson.first, order: 3)
+ResourceMaterial.create!(body: '<p><a href="https://seionline.ch" target="_blank">Sei Online link</a></p>', lesson: Lesson.first, order: 4)
+TaskMaterial.create!(body: '<ul><li>Do this</li><li>And this</li><li>And this too</li></ul>', lesson: Lesson.first, order: 5)

@@ -7,6 +7,7 @@ class CreateLessons < ActiveRecord::Migration[6.1]
       t.string :description
       t.string :content
       t.integer :order, null: false
+      t.index [:topic_id, :order], unique: true
       t.references :topic, foreign_key: true
 
       t.timestamps

@@ -5,6 +5,7 @@ class CreateTopics < ActiveRecord::Migration[6.1]
     create_table :topics do |t|
       t.string :name, null: false
       t.integer :order, null: false
+      t.index [:course_id, :order], unique: true
       t.references :course, foreign_key: true
 
       t.timestamps
