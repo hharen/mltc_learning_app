@@ -14,3 +14,5 @@ class Lesson < ApplicationRecord
     Reorderer.new(lesson, :topic_id).reorder!
   end
 end
+
+# TODO: if order isn't set make it a last order
