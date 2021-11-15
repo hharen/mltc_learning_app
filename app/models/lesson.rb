@@ -13,6 +13,19 @@ class Lesson < ApplicationRecord
   before_save do |lesson|
     Reorderer.new(lesson, :topic_id).reorder!
   end
-end
 
-# TODO: if order isn't set make it a last order
+  def previous
+    # if this is the first lesson of the topic
+    if self.order == self.topic.lessons.first.order
+      # return if self.topic.order ==
+      # self.topic.order
+      # Topic.where(order: self.)
+    else
+      self.class.where('"order" < ?', self.order).last
+    end
+  end
+
+  def next
+    self.class.where('"order" > ?', self.order).first
+  end
+end

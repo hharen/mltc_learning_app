@@ -1,8 +1,44 @@
-h1 = @lesson.name
-p = @lesson.description
-- @lesson.materials.each do |material| 
-  h3 = material.title unless material.title.nil?
-  =="#{material.show_body}"
 
-p 
-  a (href="#{@lesson.course.ask_question_link}") Ask on Slack
+div class='mb-8 p-2 w-full flex flex-wrap bg-grey-light'
+
+  / TODO: Implement show all lessons | Show all topics
+
+  div.border-r-2.border-grey-500 class="w-full md:w-1/2 lg:w-1/3 hidden lg:inline-block"
+    h2 = @lesson.course.name
+    - @lesson.course.topics.each_with_index do |topic, index_topic|
+      - index_topic += 1
+      h3.show-hide data-index-topic="#{index_topic}"
+        span.text-red-500 >
+        = "#{index_topic}. #{topic.name}"
+      ol.ml-4 class="lessons#{index_topic}" data-index-topic="#{index_topic}"
+        - topic.lessons.each_with_index do |lesson, index_lesson|
+          li
+            p
+              = link_to "#{index_topic}.#{index_lesson + 1} #{lesson.name}", lesson_path(lesson)
+
+  div class='w-full lg:w-2/3 bg-grey px-4'
+    h1 = "#{@lesson.topic.order}.#{@lesson.order} #{@lesson.name}"
+    p = @lesson.description.presence
+    - @lesson.materials.each do |material|
+      h2.py-2 = material.title unless material.title.nil?
+      =="#{material.show_body}"
+
+    p.pt-4
+      = link_to t('lessons.ask_slack'), "#{@lesson.course.ask_question_link}", target: '_blank'
+
+    div.flex.justify-between.mt-8
+      = unless @lesson.order == Lesson.where(topic: @lesson.topic).first.order
+      = link_to t('lessons.previous'), @lesson.previous, class: 'border-b-2 border-red-400'
+      = unless @lesson.order == Lesson.where(topic: @lesson.topic).last.order
+      = link_to t('lessons.next'), @lesson.next, class: 'border-b-2 border-red-400'
+
+javascript:
+  document.querySelectorAll(".show-hide").forEach(item => {
+    item.addEventListener("click", (event) => {
+      console.log(event.target.dataset.indexTopic)
+      document.querySelector(`.lessons${event.target.dataset.indexTopic}`).classList.toggle("hidden")
+    })
+  });
+
+// TODO: fix index and lesson order to be the same thing. now if there's a mistake in the data,
+// you'll have a different order on the left in the list of lessons as on the right, the lesson
