@@ -16,7 +16,7 @@ div class='mb-8 p-2 w-full flex flex-wrap bg-grey-light'
             p
               = link_to "#{index_topic}.#{index_lesson + 1} #{lesson.name}", lesson_path(lesson)
 
-  div class='w-full lg:w-2/3 bg-grey px-4'
+  div class='w-full lg:w-2/3 bg-grey'
     h1 = "#{@lesson.topic.order}.#{@lesson.order} #{@lesson.name}"
     p = @lesson.description.presence
     - @lesson.materials.each do |material|

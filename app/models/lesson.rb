@@ -16,16 +16,16 @@ class Lesson < ApplicationRecord
 
   def previous
     # if this is the first lesson of the topic
-    if self.order == self.topic.lessons.first.order
+    if order == topic.lessons.first.order
       # return if self.topic.order ==
       # self.topic.order
       # Topic.where(order: self.)
     else
-      self.class.where('"order" < ?', self.order).last
+      self.class.where('"order" < ?', order).last
     end
   end
 
   def next
-    self.class.where('"order" > ?', self.order).first
+    self.class.where('"order" > ?', order).first
   end
 end

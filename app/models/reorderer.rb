@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Reorderer 
+class Reorderer
   def initialize(object, id_reference, clazz = nil)
     @object = object
     @id_reference = id_reference
