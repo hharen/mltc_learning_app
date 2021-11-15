@@ -5,7 +5,7 @@ class Material < ApplicationRecord
 
   belongs_to :lesson
 
-  validates :type, :body, presence: true
+  validates :order, :body, presence: true
 
   before_save do |material|
     Reorderer.new(material, :lesson_id, Material).reorder!

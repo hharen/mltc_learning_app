@@ -5,7 +5,7 @@ class CreateCourses < ActiveRecord::Migration[6.1]
     create_table :courses do |t|
       t.string :name, null: false
       t.string :description
-      t.string :ask_question_link
+      t.string :ask_question_url
 
       t.timestamps
     end
