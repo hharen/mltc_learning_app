@@ -36,3 +36,8 @@ en:
     attributes:
       user:
         new_password: 'New password'
+  lessons:
+    ask_slack: 'Ask on Slack'
+    previous: '< Previous lesson'
+    next: 'Next lesson >'
+    

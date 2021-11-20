@@ -5,7 +5,9 @@ class CreateMaterials < ActiveRecord::Migration[6.1]
     create_table :materials do |t|
       t.string :type, null: false
       t.string :body
-      t.references :lessons
+      t.integer :order, null: false
+      t.index [:lesson_id, :order], unique: true
+      t.references :lesson
 
       t.timestamps
     end
