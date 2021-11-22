@@ -27,7 +27,6 @@ experience required.",
 courses = [web_dev, seo]
 courses_for_users = [[web_dev, seo], [web_dev], [seo]]
 
-
 # Creates an admin user
 User.create!(
   first_name: 'Hana',
