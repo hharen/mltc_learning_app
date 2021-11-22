@@ -8,7 +8,7 @@ web_dev = Course.create!(
   description: "Everyone’s talking about coding, but where do you start? One of the best ways is by building \
 websites. Whether you want to tweak your business’s site, hone your web development skills, or learn to collaborate \
 with developers, this will help you get there.",
-  ask_question_link: 'https://app.slack.com/client/TP3DU1WRZ/G01CZERLTAT',
+  ask_question_url: 'https://app.slack.com/client/TP3DU1WRZ/G01CZERLTAT',
   what_students_learn: ['Read & Write HTML and CSS', 'Create your own design',
                         'Launch a website from your own computer', 'Build two live websites']
 )
@@ -19,7 +19,7 @@ seo = Course.create!(
 Optimization, or SEO, is a powerful way to drive targeted traffic to your website and help improve your search \
 rankings. In this course you’ll learn SEO that you can immediately apply to your own website, with no prior \
 experience required.",
-  ask_question_link: 'https://app.slack.com/client/TP3DU1WRZ/CPH4NMW06',
+  ask_question_url: 'https://app.slack.com/client/TP3DU1WRZ/CPH4NMW06',
   what_students_learn: ['SEO Strategies', 'Structure websites for SEO optimization', 'On-page & off-page SEO',
                         'Set up & use Google Analytics']
 )

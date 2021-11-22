@@ -8,13 +8,19 @@ div class='mb-8 p-2 w-full flex flex-wrap bg-grey-light'
         div
           span.text-red-500 >
           = "#{topic.order}. #{topic.name}"
-        span.text-gray-200 ✓
+        - if topic.completed
+          span.text-green-200 ✓
+        - else
+          span.text-gray-200 ✓
       ol.ml-4 class="lessons#{index_topic}" data-index-topic="#{index_topic}"
         - topic.lessons.each do |lesson|
           li
             p.flex.justify-between
               = link_to "#{topic.order}.#{lesson.order} #{lesson.name}", lesson_path(lesson)
-              span.text-green-200 ✓
+              - if lesson.completed
+                span.text-green-200 ✓
+              - else
+                span.text-gray-200 ✓
 
   div class='w-full lg:w-2/3 bg-grey md:pl-2'
     h1 = "#{@lesson.topic.order}.#{@lesson.order} #{@lesson.name}"
@@ -24,12 +30,13 @@ div class='mb-8 p-2 w-full flex flex-wrap bg-grey-light'
       =="#{material.show_body}"
 
     p.pt-4
-      = link_to t('lessons.ask_slack'), "#{@lesson.course.ask_question_link}", target: '_blank'
+      = link_to t('lessons.ask_slack'), "#{@lesson.course.ask_question_url}", target: '_blank'
 
     div.flex.justify-between.mt-8
       = unless @lesson.order == Lesson.where(topic: @lesson.topic).first.order
       = link_to t('lessons.previous'), @lesson.previous, class: 'border-b-2 border-red-400'
-      span.px-2 Complete lesson
+      span.px-2 
+        = @lesson.completed ? 'Reset lesson' : 'Complete lesson'
       = unless @lesson.order == Lesson.where(topic: @lesson.topic).last.order
       = link_to t('lessons.next'), @lesson.next, class: 'border-b-2 border-red-400'
 

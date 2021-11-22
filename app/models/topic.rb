@@ -12,4 +12,14 @@ class Topic < ApplicationRecord
   before_save do |topic|
     Reorderer.new(topic, :course_id).reorder!
   end
+
+  def completed
+    all_topic_lessons.all?(&:completed)
+  end
+
+  private
+
+  def all_topic_lessons
+    self.lessons
+  end
 end
