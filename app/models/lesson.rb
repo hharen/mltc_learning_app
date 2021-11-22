@@ -15,17 +15,20 @@ class Lesson < ApplicationRecord
   end
 
   def previous
-    # if this is the first lesson of the topic
-    if order == topic.lessons.first.order
-      # return if self.topic.order ==
-      # self.topic.order
-      # Topic.where(order: self.)
-    else
-      self.class.where('"order" < ?', order).last
-    end
+    find_neighbouring_lesson(- 1)
   end
 
   def next
-    self.class.where('"order" > ?', order).first
+    find_neighbouring_lesson(1)
+  end
+
+  private
+
+  def find_neighbouring_lesson(direction)
+    lessons_ids = course.topics.map(&:lessons).flatten.pluck(:id)
+    lesson_index = lessons_ids.index(id)
+    Lesson.find(lessons_ids[
+      (lesson_index + direction).clamp(0, lessons_ids.length - 1)
+    ])
   end
 end
