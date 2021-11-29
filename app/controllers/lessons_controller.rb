@@ -5,5 +5,7 @@ class LessonsController < ApplicationController
 
   def show
     @lesson = Lesson.find(params[:id])
+    @subscription = current_user.subscriptions.where(course: @lesson.course).first
+    @completed = @lesson.completed?(@subscription)
   end
 end

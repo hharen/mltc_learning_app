@@ -13,13 +13,9 @@ class Topic < ApplicationRecord
     Reorderer.new(topic, :course_id).reorder!
   end
 
-  def completed
-    all_topic_lessons.all?(&:completed)
-  end
-
-  private
-
-  def all_topic_lessons
-    self.lessons
+  def completed?(subscription)
+    lessons.all? do |lesson|
+      lesson.completed?(subscription)
+    end
   end
 end

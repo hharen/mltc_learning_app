@@ -16,7 +16,7 @@ class User < ApplicationRecord
   validates :first_name, :last_name, :email, :password, presence: true
   validates :email, uniqueness: true, format: { with: /@/, message: 'Please write a valid email address' }
 
-  def is_admin?
+  def admin?
     is_admin == true
   end
 

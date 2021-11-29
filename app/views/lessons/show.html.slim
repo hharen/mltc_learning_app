@@ -8,7 +8,7 @@ div class='mb-8 p-2 w-full flex flex-wrap bg-grey-light'
         div
           span.text-red-500 >
           = "#{topic.order}. #{topic.name}"
-        - if topic.completed
+        - if topic.completed?(@subscription)
           span.text-green-200 ✓
         - else
           span.text-gray-200 ✓
@@ -17,7 +17,7 @@ div class='mb-8 p-2 w-full flex flex-wrap bg-grey-light'
           li
             p.flex.justify-between
               = link_to "#{topic.order}.#{lesson.order} #{lesson.name}", lesson_path(lesson)
-              - if lesson.completed
+              - if lesson.completed?(@subscription)
                 span.text-green-200 ✓
               - else
                 span.text-gray-200 ✓
@@ -36,7 +36,10 @@ div class='mb-8 p-2 w-full flex flex-wrap bg-grey-light'
       = unless @lesson.order == Lesson.where(topic: @lesson.topic).first.order
       = link_to t('lessons.previous'), @lesson.previous, class: 'border-b-2 border-red-400'
       span.px-2 
-        = @lesson.completed ? 'Reset lesson' : 'Complete lesson'
+        = form_with(model: @subscription, id: "lesson-completed") do |form|
+          = form.hidden_field :completed, value: !@completed
+          = form.hidden_field :lesson_id, value: @lesson.id
+          = form.submit @completed ? 'Reset lesson' : 'Complete lesson'
       = unless @lesson.order == Lesson.where(topic: @lesson.topic).last.order
       = link_to t('lessons.next'), @lesson.next, class: 'border-b-2 border-red-400'
 
