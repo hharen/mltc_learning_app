@@ -22,6 +22,10 @@ class Lesson < ApplicationRecord
     find_neighbouring_lesson(1)
   end
 
+  def completed?(subscription)
+    subscription.completed_lessons[id.to_s] == 'true'
+  end
+
   private
 
   def find_neighbouring_lesson(direction)

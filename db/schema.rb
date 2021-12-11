@@ -13,12 +13,14 @@
 ActiveRecord::Schema.define(version: 2021_09_15_144113) do
 
   # These are extensions that must be enabled in order to support this database
+  enable_extension "hstore"
   enable_extension "plpgsql"
 
   create_table "courses", force: :cascade do |t|
     t.string "name", null: false
     t.string "description"
-    t.string "ask_question_link"
+    t.boolean "completed", default: false
+    t.string "ask_question_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "what_students_learn", array: true
@@ -29,6 +31,7 @@ ActiveRecord::Schema.define(version: 2021_09_15_144113) do
     t.string "description"
     t.string "content"
     t.integer "order", null: false
+    t.boolean "completed", default: false
     t.bigint "topic_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -48,6 +51,7 @@ ActiveRecord::Schema.define(version: 2021_09_15_144113) do
   end
 
   create_table "subscriptions", force: :cascade do |t|
+    t.hstore "completed_lessons", default: {}, null: false
     t.bigint "user_id"
     t.bigint "course_id"
     t.datetime "created_at", precision: 6, null: false
