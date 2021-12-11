@@ -4,6 +4,6 @@ class AdminController < ApplicationController
   before_action :authorize
 
   def authorize
-    redirect_to :root unless current_user&.is_admin?
+    redirect_to :root unless current_user&.admin?
   end
 end

@@ -12,4 +12,10 @@ class Topic < ApplicationRecord
   before_save do |topic|
     Reorderer.new(topic, :course_id).reorder!
   end
+
+  def completed?(subscription)
+    lessons.all? do |lesson|
+      lesson.completed?(subscription)
+    end
+  end
 end
