@@ -1,0 +1,12 @@
+h1 My Courses
+- @subscriptions.each do |subscription|
+  - course = subscription.course
+  div
+    h2 = link_to course.name, course_path(course.id)
+    p = course.description
+    ul
+      - course.what_students_learn&.each do |point|
+        li = point
+    div.btn.btn-red
+      = link_to 'Continue learning', lesson_path(subscription.continue_lesson)
+

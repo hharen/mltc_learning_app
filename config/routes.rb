@@ -13,8 +13,8 @@ Rails.application.routes.draw do
 
   resources :courses, only: %i[index show]
   resources :lessons, only: [:show]
-  get '/my_courses' => 'my_courses#index', :as => :user_root
-  resources :subscriptions, only: [:update]
+  get '/my_courses' => 'subscriptions#index', :as => :user_root
+  resources :subscriptions, only: %i[index update]
   resources :users, only: %i[edit update]
 
 
