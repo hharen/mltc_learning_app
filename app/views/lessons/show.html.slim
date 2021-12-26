@@ -23,7 +23,12 @@ div class='mb-8 p-2 w-full flex flex-wrap bg-grey-light'
                 span.text-gray-200 ✓
 
   div class='w-full lg:w-2/3 bg-grey md:pl-2'
-    h1 = "#{@lesson.topic.order}.#{@lesson.order} #{@lesson.name}"
+    h1.flex.justify-between
+      span= "#{@lesson.topic.order}.#{@lesson.order} #{@lesson.name}"
+      - if @lesson.completed?(@subscription)
+        span.text-green-200  ✓
+      - else
+        span.text-gray-200  ✓
     p = @lesson.description.presence
     - @lesson.materials.each do |material|
       h2.py-2 = material.title unless material.title.nil?
