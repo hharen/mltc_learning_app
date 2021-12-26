@@ -34,14 +34,14 @@ div class='mb-8 p-2 w-full flex flex-wrap bg-grey-light'
 
     div.flex.justify-between.mt-8
       = unless @lesson.order == Lesson.where(topic: @lesson.topic).first.order
-      = link_to t('lessons.previous'), @lesson.previous, class: 'border-b-2 border-red-400'
+      = link_to t('lessons.previous'), @lesson.previous, class: 'border-b-2 border-red-400 self-end'
       span.px-2 
         = form_with(model: @subscription, id: "lesson-completed") do |form|
           = form.hidden_field :completed, value: !@completed
           = form.hidden_field :lesson_id, value: @lesson.id
-          = form.submit @completed ? 'Reset lesson' : 'Complete lesson'
+          = form.submit @completed ? 'Reset lesson' : 'Complete lesson', class: 'btn btn-red-outline bg-white'
       = unless @lesson.order == Lesson.where(topic: @lesson.topic).last.order
-      = link_to t('lessons.next'), @lesson.next, class: 'border-b-2 border-red-400'
+      = link_to t('lessons.next'), @lesson.next, class: 'border-b-2 border-red-400 self-end'
 
 javascript:
   document.querySelectorAll(".show-hide").forEach(item => {
