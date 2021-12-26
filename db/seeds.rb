@@ -4,7 +4,7 @@ require 'faker'
 
 # Create Courses
 web_dev = Course.create!(
-  name: 'Web develompent for moms in 60 days',
+  name: 'Web development for moms in 60 days',
   description: "Everyone’s talking about coding, but where do you start? One of the best ways is by building \
 websites. Whether you want to tweak your business’s site, hone your web development skills, or learn to collaborate \
 with developers, this will help you get there.",

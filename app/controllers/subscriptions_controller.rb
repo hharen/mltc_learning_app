@@ -1,6 +1,12 @@
 # frozen_string_literal: true
 
 class SubscriptionsController < ApplicationController
+  before_action :authenticate_user!
+
+  def index
+    @subscriptions = current_user.subscriptions
+  end
+
   def update
     update_lesson_completed
     redirect_to lesson_path(find_lesson)

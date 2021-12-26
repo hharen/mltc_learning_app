@@ -4,7 +4,10 @@ p This is your profile
 h2 Your Courses
 ul 
   - @user.courses&.each do |course|
-    li = course.name
+    li = link_to course.name, course_path
 
 h2 Your Profile
 = render 'form'
+
+p.mt-8
+  = link_to 'Change your password or cancel account.', edit_user_registration_path
