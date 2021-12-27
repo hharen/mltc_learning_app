@@ -73,7 +73,6 @@ User.create!(
 end
 
 # Create Topics
-
 courses.each do |course|
   8.times do |i|
     Topic.create!(
@@ -103,4 +102,4 @@ VideoMaterial.create!(body: 'https://mltcwebdev.s3-eu-west-1.amazonaws.com/web-d
 PresentationMaterial.create!(body: 'https://docs.google.com/presentation/d/e/2PACX-1vQaWCQsDtdh-Ab-EMlvuMY0ZHpiI95xzk8UQTmaumh-1DgHARQ2TkojgdFYLKqqeDSLhHPVwut6umrY', lesson: Lesson.first, order: 2)
 TextMaterial.create!(body: '<h2>Hi I am your material body</h2><p>Show me</p>', lesson: Lesson.first, order: 3)
 ResourceMaterial.create!(body: '<p><a href="https://seionline.ch" target="_blank">Sei Online link</a></p>', lesson: Lesson.first, order: 4)
-TaskMaterial.create!(body: '<ul><li>Do this</li><li>And this</li><li>And this too</li></ul>', lesson: Lesson.first, order: 5)
+TaskMaterial.create!(body: '<ol><li>Do this</li><li>And this</li><li>And this too</li></ol>', lesson: Lesson.first, order: 5)
