@@ -19,3 +19,7 @@
 .mobile-menu li {
   padding: 4px 2px;
 }
+
+.bottom-red-border {
+  @apply border-b-2 border-red-400 self-end not-underline
+}
