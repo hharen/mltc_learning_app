@@ -37,14 +37,14 @@ div class='mb-8 p-2 w-full flex flex-wrap bg-grey-light'
     p.pt-4
       = link_to t('lessons.ask_slack'), "#{@lesson.course.ask_question_url}", target: '_blank'
 
+    div.px-2 class="sm:hidden"
+      = render 'complete_reset'
+
     div.flex.justify-between.mt-8
       = unless @lesson.order == Lesson.where(topic: @lesson.topic).first.order
       = link_to t('lessons.previous'), @lesson.previous, class: 'border-b-2 border-red-400 self-end'
-      span.px-2 
-        = form_with(model: @subscription, id: "lesson-completed") do |form|
-          = form.hidden_field :completed, value: !@completed
-          = form.hidden_field :lesson_id, value: @lesson.id
-          = form.submit @completed ? 'Reset lesson' : 'Complete lesson', class: 'btn btn-red-outline bg-white'
+      span.px-2.hidden class="sm:flex"
+        = render 'complete_reset'
       = unless @lesson.order == Lesson.where(topic: @lesson.topic).last.order
       = link_to t('lessons.next'), @lesson.next, class: 'border-b-2 border-red-400 self-end'
 
@@ -55,8 +55,3 @@ javascript:
       document.querySelector(`.lessons${event.target.dataset.indexTopic}`).classList.toggle("hidden")
     })
   });
-
-
-// TODO: Implement show all lessons | Show all topics
-// TODO: fix index and lesson order to be the same thing. now if there's a mistake in the data,
-// you'll have a different order on the left in the list of lessons as on the right, the lesson
