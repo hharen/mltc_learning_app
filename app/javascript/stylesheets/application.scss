@@ -7,20 +7,20 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-// Your CSS partials
+// CSS partials
 @import "components/index";
 @import "pages/index";
 
 h1 {
-  font-size: 3em;
+  font-size: 1.8em;
 }
 
 h2 {
-  font-size: 2em;
+  font-size: 1.5em;
 }
 
 h3 {
-  font-size: 1.5em;
+  font-size: 1.3em;
 }
 
 h1, h2, h3, h4, p, ul {
@@ -29,6 +29,20 @@ h1, h2, h3, h4, p, ul {
 
 h1, h2 {
   padding: 20px 10px 3px;
+}
+
+@media only screen and (min-width: 768px) {
+  h1 {
+    font-size: 3em;
+  }
+
+  h2 {
+    font-size: 2em;
+  }
+
+  h3 {
+    font-size: 1.5em;
+  }
 }
 
 a:hover {
