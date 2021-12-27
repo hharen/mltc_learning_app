@@ -5,27 +5,27 @@
             <div>
 
               <!-- Website Logo -->
-              <a href="/" class="flex items-center py-4 px-2">
+              <a href="https://www.momslearntocode.com/" class="flex items-center py-4 px-2">
                 <%= image_tag 'MLTC_logo_square_compressed.png', alt: 'Moms Learn to Code logo', class:"h-20 w-20 mr-2" %>
               </a>
             </div>
 
             <!-- Primary Navbar items -->
             <div class="hidden md:flex items-center space-x-1">
-              <a href="" class="py-4 px-2 text-red-500 border-b-4 border-red-500 ">All Courses</a>
-              <a href="" class="py-4 px-2 hover:text-red-500 transition duration-300">My Courses</a>
-              <a href="https://www.momslearntocode.com" class="py-4 px-2 hover:text-red-500 transition duration-300">Moms Learn to Code</a>
-              <!-- <a href="" class="py-4 px-2 hover:text-red-500 transition duration-300">Contact Us</a> -->
+              <%= link_to 'All Courses', courses_path, class: "link-nav" %>
+              <%= link_to 'My Courses', user_root_path, class: "link-nav" %>
+              <%= link_to 'Contact us', 'https://www.momslearntocode.com/#footer', class: "link-nav" %>
             </div>
           </div>
 
           <!-- Secondary Navbar items -->
           <div class="hidden md:flex items-center space-x-3 ">
+            <%= link_to 'My account', edit_user_path(current_user), class: "link-nav" %>
             <% if user_signed_in? %>
-              <%= link_to "MLTC Home", "https://www.momslearntocode.com", class: "py-2 px-2 font-medium transition duration-300" %>
-              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "py-2 px-2 font-medium rounded hover:bg-red-500 hover:text-white transition duration-300" %>
+              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "link-nav rounded hover:bg-red-500 hover:text-white" %>
             <% else %>
-              <%= link_to "Login", new_user_session_path, class: "py-2 px-2 font-medium rounded hover:bg-red-500 hover:text-white transition duration-300" %>
+              <%= link_to "Login", new_user_session_path, class: "link-nav rounded hover:bg-red-500 hover:text-white" %>
+              py-2 px-2 font-medium transition duration-300
             <% end %>
           </div>
 
@@ -51,10 +51,18 @@
       <!-- mobile menu -->
       <div class="hidden mobile-menu">
         <ul class="">
-          <li class="active"><a href="index.html" class="block text-sm px-2 py-4 text-white bg-red-500">Home</a></li>
-          <li><a href="#services" class="block text-sm px-2 py-4 hover:bg-red-500 transition duration-300">Services</a></li>
-          <li><a href="#about" class="block text-sm px-2 py-4 hover:bg-red-500 transition duration-300">About</a></li>
-          <li><a href="#contact" class="block text-sm px-2 py-4 hover:bg-red-500 transition duration-300">Contact Us</a></li>
+          <li><%= link_to 'MLTC homepage', 'https://www.momslearntocode.com/' %></li>
+          <li><%= link_to 'All Courses', courses_path %></li>
+          <li><%= link_to 'My Courses', user_root_path %></li>
+          <li><%= link_to 'Contact us', 'https://www.momslearntocode.com/#footer' %></li>
+          <li><%= link_to 'My account', edit_user_path(current_user) %></li>
+          <li>
+            <% if user_signed_in? %>
+              <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+            <% else %>
+              <%= link_to "Login", new_user_session_path %>
+            <% end %>
+          </li>
         </ul>
       </div>
       <script>

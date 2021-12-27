@@ -1,11 +1,25 @@
+// Buttons
 .btn {
-  @apply py-2 px-2 font-medium mt-4;
+  @apply p-2 font-medium mt-4;
 }
 
-.btn-red a {
+.btn-red-outline a, .btn-red-outline {
   @apply p-2 rounded border text-red-500 border-red-500;
 }
 
-.btn-red:hover a {
+.btn-red-outline:hover a, .btn-red-outline {
   @apply hover:bg-red-500 hover:text-white transition duration-300;
+}
+
+// Navbar
+.link-nav {
+  @apply p-2 transition duration-300
+}
+
+.mobile-menu li {
+  padding: 4px 2px;
+}
+
+.bottom-red-border {
+  @apply border-b-2 border-red-400 self-end not-underline
 }

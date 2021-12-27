@@ -1,0 +1,4 @@
+= form_with(model: @subscription, id: "lesson-completed") do |form|
+  = form.hidden_field :completed, value: !@completed
+  = form.hidden_field :lesson_id, value: @lesson.id
+  = form.submit @completed ? 'Reset lesson' : 'Complete lesson', class: 'btn btn-red-outline bg-white'
