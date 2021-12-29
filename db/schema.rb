@@ -31,7 +31,6 @@ ActiveRecord::Schema.define(version: 2021_09_15_144113) do
     t.string "description"
     t.string "content"
     t.integer "order", null: false
-    t.boolean "completed", default: false
     t.bigint "topic_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

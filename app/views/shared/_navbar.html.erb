@@ -20,12 +20,11 @@
 
           <!-- Secondary Navbar items -->
           <div class="hidden md:flex items-center space-x-3 ">
-            <%= link_to 'My account', edit_user_path(current_user), class: "link-nav" %>
             <% if user_signed_in? %>
+              <%= link_to 'My account', edit_user_path(current_user), class: "link-nav" %>
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "link-nav rounded hover:bg-red-500 hover:text-white" %>
             <% else %>
               <%= link_to "Login", new_user_session_path, class: "link-nav rounded hover:bg-red-500 hover:text-white" %>
-              py-2 px-2 font-medium transition duration-300
             <% end %>
           </div>
 
@@ -55,9 +54,9 @@
           <li><%= link_to 'All Courses', courses_path %></li>
           <li><%= link_to 'My Courses', user_root_path %></li>
           <li><%= link_to 'Contact us', 'https://www.momslearntocode.com/#footer' %></li>
-          <li><%= link_to 'My account', edit_user_path(current_user) %></li>
           <li>
             <% if user_signed_in? %>
+              <li><%= link_to 'My account', edit_user_path(current_user) %></li>
               <%= link_to "Log out", destroy_user_session_path, method: :delete %>
             <% else %>
               <%= link_to "Login", new_user_session_path %>
