@@ -1,4 +1,6 @@
 h1 = @course.name
+div.btn.btn-red-outline
+  = link_to 'Start the course', lesson_path(@course.lessons.first)
 - @course.topics.each_with_index do |topic, index_topic|
   - topic.order
   h2.show-hide data-index-topic="#{index_topic}"
