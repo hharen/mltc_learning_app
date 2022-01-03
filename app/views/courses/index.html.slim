@@ -1,7 +1,16 @@
 h1 Courses
-- @courses.each do |course|
-  h2 = link_to course.name, course_path(course.id)
-  p = course.description
-  ul.list-disc.ml-4
-    - course.what_students_learn&.each do |point|
-      li = point
+div.flex
+  - @courses.each do |course|
+    div.flex.flex-col.justify-between.box-shadow.m-2.p-4.flex-1
+      div.flex.flex-col
+        h2 = link_to course.name, course_path(course.id)
+        p = course.description
+        ul.list-disc.ml-4
+          - course.what_students_learn&.each do |point|
+            li = point
+      div.flex.flex-row
+        div.btn.btn-red
+          = link_to 'Course overview', course_path(course)
+        - if user_signed_in?
+          div.btn.btn-red-outline
+            = link_to 'Continue learning', lesson_path(1)
