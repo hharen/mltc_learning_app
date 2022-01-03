@@ -1,0 +1,10 @@
+introduction_lesson1:
+  topic: introduction
+  name: First lesson
+  order: 1
+
+introduction_lesson2:
+  topic: introduction
+  name: Second lesson
+  order: 2
+  

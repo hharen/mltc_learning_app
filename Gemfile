@@ -34,7 +34,11 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 group :development, :test do
   gem 'faker', '~> 2.19'
+  gem 'net-smtp', require: false
   gem 'pry', '~> 0.14.1'
+  gem 'rspec-rails', '~> 5.0', '>= 5.0.2'
+  gem 'rubocop-rspec', '~> 2.7', require: false
+  gem 'rubocop-rails', '~> 2.13', require: false
 end
 
 group :development do

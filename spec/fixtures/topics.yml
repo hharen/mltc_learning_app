@@ -1,0 +1,9 @@
+introduction:
+  course: web_dev_course
+  name: Introduction
+  order: 1
+
+html_basics:
+  course: web_dev_course
+  name: HTML Basics
+  order: 2
