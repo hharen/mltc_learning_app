@@ -51,7 +51,7 @@ div class='mb-8 p-2 w-full flex flex-wrap bg-grey-light'
 javascript:
   document.querySelectorAll(".show-hide").forEach(item => {
     item.addEventListener("click", (event) => {
-      console.log(event.target.dataset.indexTopic)
-      document.querySelector(`.lessons${event.target.dataset.indexTopic}`).classList.toggle("hidden")
+      let div = event.target.closest('.show-hide')
+      document.querySelector(`.lessons${div.dataset.indexTopic}`).classList.toggle("hidden")
     })
   });

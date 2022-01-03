@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 2021_09_15_144113) do
   create_table "courses", force: :cascade do |t|
     t.string "name", null: false
     t.string "description"
-    t.boolean "completed", default: false
     t.string "ask_question_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
