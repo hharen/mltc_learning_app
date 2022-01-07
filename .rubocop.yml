@@ -9,6 +9,9 @@ Layout/EmptyLinesAroundBlockBody:
   Exclude:
     - 'db/schema.rb'
 
+Layout/LineLength:
+  Max: 140
+
 Metrics/BlockLength:
   Max: 40
 

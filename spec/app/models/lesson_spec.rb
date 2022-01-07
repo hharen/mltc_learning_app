@@ -36,7 +36,7 @@ RSpec.describe Lesson do
     end
   end
 
-  describe '#completed' do
+  describe '#completed?' do
     let(:subscription) { subscriptions(:subscription_anne_web_dev) }
 
     before do
