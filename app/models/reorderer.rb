@@ -9,9 +9,11 @@ class Reorderer
 
   def reorder!
     id_reference = @object[@id_reference]
-
     if @object.order.nil?
-      @object.order = @clazz.unscoped.where(@id_reference => id_reference).maximum(:order) + 1
+      @object.order = last_order
+      @object.save
+    elsif @object.order > last_order
+      @object.order = last_order
       @object.save
     else
       objects_to_reorder = @clazz.where(@id_reference => id_reference, order: (@object.order..))
@@ -19,5 +21,12 @@ class Reorderer
         object.update_column(:order, object.order + 1)
       end
     end
+  end
+
+  private
+
+  def last_order
+    id_reference = @object[@id_reference]
+    @clazz.unscoped.where(@id_reference => id_reference).maximum(:order) + 1
   end
 end

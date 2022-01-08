@@ -7,4 +7,19 @@ introduction_lesson2:
   topic: introduction
   name: Second lesson
   order: 2
+
+introduction_lesson3:
+  topic: introduction
+  name: Third lesson
+  order: 3
+
+introduction_lesson4:
+  topic: introduction
+  name: Fourth lesson
+  order: 4
+
+introduction_lesson5:
+  topic: introduction
+  name: Fifth lesson
+  order: 5
   
