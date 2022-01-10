@@ -1,0 +1,29 @@
+presentation_material:
+  body: 'presentation_link'
+  lesson: introduction_lesson1
+  order: 1
+  type: PresentationMaterial
+
+resource_material:
+  body: 'Your resources.'
+  lesson: introduction_lesson1
+  order: 2
+  type: ResourceMaterial
+
+task_material:
+  body: '<p>Your first task is to jump three times</p>'
+  lesson: introduction_lesson1
+  order: 3
+  type: TaskMaterial
+
+text_material:
+  body: '<h2>Hi I am your material body</h2><p>Show me</p>'
+  lesson: introduction_lesson1
+  order: 4
+  type: TextMaterial
+
+video_material:
+  body: 'video_link'
+  lesson: introduction_lesson1
+  order: 5
+  type: VideoMaterial

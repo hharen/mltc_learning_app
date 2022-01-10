@@ -1,7 +1,23 @@
+require: 
+  - rubocop-rails
+  - rubocop-rspec
+
+AllCops:
+    NewCops: enable
+
 Layout/EmptyLinesAroundBlockBody:
   Exclude:
     - 'db/schema.rb'
 
+Layout/LineLength:
+  Max: 140
+
+Metrics/BlockLength:
+  Max: 40
+
+RSpec/MultipleExpectations:
+  Enabled: false
+  
 Style/FrozenStringLiteralComment:
   Exclude:
     - 'db/schema.rb'
