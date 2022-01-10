@@ -18,7 +18,7 @@ introduction_lesson4:
   name: Fourth lesson
   order: 4
 
-introduction_lesson5:
+last_lesson5:
   topic: introduction
   name: Fifth lesson
   order: 5

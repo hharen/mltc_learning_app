@@ -7,6 +7,8 @@ RSpec.describe Lesson do
 
   let(:lesson1) { lessons(:introduction_lesson1) }
   let(:lesson2) { lessons(:introduction_lesson2) }
+  let(:lesson4) { lessons(:introduction_lesson4) }
+  let(:last_lesson5) { lessons(:last_lesson5) }
 
   describe '#previous' do
     context 'with a preceeding lesson' do
@@ -29,9 +31,9 @@ RSpec.describe Lesson do
       end
     end
 
-    context 'when it is the first lesson' do
+    context 'when it is the last lesson' do
       it 'returns itself' do
-        expect(lesson2.next).to eq(lesson2)
+        expect(lesson4.next).to eq(last_lesson5)
       end
     end
   end
