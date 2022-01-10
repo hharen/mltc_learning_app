@@ -12,6 +12,15 @@ class Subscription < ApplicationRecord
   private
 
   def uncompleted_lesson_ids
-    lessons.pluck(:id) - completed_lessons.select {|k, v| v == 'true' }.keys.map(&:to_i)
+    all_lesson_ids = lessons.pluck(:id)
+    return all_lesson_ids if completed_lessons.empty?
+
+    all_lesson_ids - completed_lesson_ids 
+  end
+
+  def completed_lesson_ids
+    completed_lessons.select do |k, v| 
+      v == 'true' 
+    end.keys.map(&:to_i)
   end
 end
