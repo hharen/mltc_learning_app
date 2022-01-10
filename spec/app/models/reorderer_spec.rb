@@ -9,8 +9,7 @@ RSpec.describe Reorderer do
   let(:lesson2) { lessons(:introduction_lesson2) }
   let(:lesson3) { lessons(:introduction_lesson3) }
   let(:lesson4) { lessons(:introduction_lesson4) }
-  let(:lesson5) { lessons(:introduction_lesson5) }
-
+  let(:last_lesson5) { lessons(:last_lesson5) }
 
   describe '#reorder!' do
     context 'when creating a new lesson without order' do
@@ -30,12 +29,27 @@ RSpec.describe Reorderer do
     end
 
     context 'when reordering an existing lesson' do
-      it 'reorders a lesson correctly' do
+      it 'reorders a lesson to first position correctly' do
         lesson2.order = 1
         lesson2.save!
 
         expect(lesson1.order).to eq(2)
         expect(lesson2.order).to eq(1)
+      end
+
+      it 'reorders a lesson to next position correctly' do
+        lesson1.order = 2
+        lesson1.save!
+
+        expect(lesson1.order).to eq(2)
+        expect(lesson2.order).to eq(1)
+      end
+
+      it 'reorders a lesson with invalid order correctly' do
+        lesson4.order = 7
+        lesson4.save!
+
+        expect(lesson4.order).to eq(5)
       end
     end
   end

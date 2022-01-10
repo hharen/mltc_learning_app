@@ -33,7 +33,6 @@ ActiveRecord::Schema.define(version: 2021_09_15_144113) do
     t.bigint "topic_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["topic_id", "order"], name: "index_lessons_on_topic_id_and_order", unique: true
     t.index ["topic_id"], name: "index_lessons_on_topic_id"
   end
 
@@ -44,7 +43,6 @@ ActiveRecord::Schema.define(version: 2021_09_15_144113) do
     t.bigint "lesson_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["lesson_id", "order"], name: "index_materials_on_lesson_id_and_order", unique: true
     t.index ["lesson_id"], name: "index_materials_on_lesson_id"
   end
 
@@ -64,7 +62,6 @@ ActiveRecord::Schema.define(version: 2021_09_15_144113) do
     t.bigint "course_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["course_id", "order"], name: "index_topics_on_course_id_and_order", unique: true
     t.index ["course_id"], name: "index_topics_on_course_id"
   end
 
