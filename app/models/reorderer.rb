@@ -8,25 +8,38 @@ class Reorderer
   end
 
   def reorder!
-    id_reference = @object[@id_reference]
-    if @object.order.nil?
-      @object.order = last_order
-      @object.save
-    elsif @object.order > last_order
-      @object.order = last_order
-      @object.save
-    else
-      objects_to_reorder = @clazz.where(@id_reference => id_reference, order: (@object.order..))
-      objects_to_reorder.reverse.each do |object|
-        object.update_column(:order, object.order + 1)
-      end
+    ActiveRecord::Base.transaction do
+      reorder_objects!
     end
   end
 
   private
 
-  def last_order
+  def reorder_objects!
+    all_objects = get_all_objects
+
+    if @object.order.nil?
+      all_objects << @object
+    else
+      index = (@object.order - 1).clamp(0, all_objects.length)
+      all_objects.insert(index, @object)
+    end
+
+    update_records(all_objects)
+  end
+
+  def get_all_objects
     id_reference = @object[@id_reference]
-    @clazz.unscoped.where(@id_reference => id_reference).maximum(:order) + 1
+    @clazz.where(@id_reference => id_reference).where.not(id: @object.id).order(order: :asc).to_a
+  end
+
+  def update_records(all_objects)
+    all_objects.each_with_index do |object, index|
+      if object.new_record?
+        object.order = index + 1
+      else
+        object.update_column(:order, index + 1)
+      end
+    end
   end
 end
