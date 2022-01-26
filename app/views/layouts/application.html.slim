@@ -15,12 +15,12 @@ html
 
     == stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
 
-    == javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true
+    == javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
 
     link rel='preconnect' href='https://fonts.googleapis.com'
     link rel='preconnect' href='https://fonts.gstatic.com' crossorigin='anonymous'
     link href='https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Space+Mono:wght@400;700&display=swap' rel='stylesheet' 
-
+    
   body.flex.flex-col.min-h-screen
     header.flex-shrink-0
       == render 'shared/navbar'
