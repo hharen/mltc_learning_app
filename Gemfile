@@ -17,7 +17,7 @@ gem 'sass-rails', '>= 6'
 # Use Sass to process CSS
 # gem "sassc-rails", "~> 2.1"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
-gem "sprockets-rails", ">= 3.4.1"
+# gem "sprockets-rails", ">= 3.4.2"
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails", ">= 0.9.2"
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
@@ -79,3 +79,5 @@ group :test do
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
 end
+
+gem "tailwindcss-rails", "~> 2.0"

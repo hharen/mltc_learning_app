@@ -6,6 +6,9 @@
 @import "components/index";
 @import "pages/index";
 
+//=require_tree .
+//=require_self
+
 h1 {
   font-size: 1.8em;
 }

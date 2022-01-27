@@ -1,0 +1,15 @@
+@import 'flash';
+@import 'avatar';
+@import 'buttons';
+
+body, footer {
+  font-family: $body-font;
+}
+
+h1, h2, h3, h4 {
+  font-family: $heading-font;
+}
+
+.box-shadow {
+  box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.08);
+}
