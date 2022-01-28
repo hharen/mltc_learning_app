@@ -54,12 +54,12 @@ h1, h2 {
 }
 
 .lesson .bottom-red-border {
-  text-decoration: none;
+  text-decoration: none!important;
   color: black;
 }
 
-.lesson .not-underline:hover {
-  text-decoration: none;
+.box-shadow {
+  box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.08);
 }
 
 a:hover {

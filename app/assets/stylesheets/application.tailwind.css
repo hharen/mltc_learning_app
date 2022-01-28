@@ -2,3 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .btn {
+    @apply p-2 font-medium mt-4;
+  }
+
+  .btn-red a {
+    @apply p-2 rounded bg-red-500 text-white border border-white;
+  }
+
+  .btn-red:hover a {
+    @apply bg-white text-red-500 border border-red-500 transition duration-300;
+  }
+
+  .btn-red-outline a, input[type="submit"] {
+    @apply p-2 rounded border text-red-500 border-red-500 bg-white;
+  }
+
+  .btn-red-outline:hover a, input[type="submit"] {
+    @apply hover:bg-red-500 hover:text-white transition duration-300;
+  }
+
+  .link-nav {
+    @apply p-2 transition duration-300;
+  }
+
+  .mobile-menu li {
+    padding: 4px 2px;
+  }
+
+  .bottom-red-border, .bottom-red-border:hover {
+    @apply border-b-2 border-red-400 self-end decoration-none;
+  }
+}
