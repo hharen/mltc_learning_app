@@ -2,14 +2,12 @@
 @import "config/fonts";
 @import "config/colors";
 
-// External libraries
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
-
 // CSS partials
 @import "components/index";
 @import "pages/index";
+
+//=require_tree .
+//=require_self
 
 h1 {
   font-size: 1.8em;
@@ -56,12 +54,12 @@ h1, h2 {
 }
 
 .lesson .bottom-red-border {
-  text-decoration: none;
+  text-decoration: none!important;
   color: black;
 }
 
-.lesson .not-underline:hover {
-  text-decoration: none;
+.box-shadow {
+  box-shadow: 0 0 20px 3px rgba(0, 0, 0, 0.08);
 }
 
 a:hover {
