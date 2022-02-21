@@ -72,30 +72,117 @@ User.create!(
   )
 end
 
-# Create Topics
-courses.each do |course|
-  8.times do |i|
-    Topic.create!(
-      name: Faker::Fantasy::Tolkien.unique.poem,
-      order: i + 1,
-      course: course,
-    )
-  end
+# # Create Topics
+# courses.each do |course|
+#   8.times do |i|
+#     Topic.create!(
+#       name: Faker::Fantasy::Tolkien.unique.poem,
+#       order: i + 1,
+#       course: course,
+#     )
+#   end
+# end
+
+# # Create Lessons
+# [web_dev, seo].each do |course|
+#   course.topics.each do |topic|
+#     6.times do |i|
+#       Lesson.create!(
+#         name: Faker::Movies::HitchhikersGuideToTheGalaxy.location,
+#         description: Faker::Movies::HitchhikersGuideToTheGalaxy.quote,
+#         order: i + 1,
+#         topic: topic
+#       )
+#     end
+#   end
+# end
+
+# Create topics for SEO course
+seo_topics = ['Introduction', 'On-page SEO', 'Off-page SEO', 'Technical SEO', 'Google Analytics', 'Keywords research', 'Q&A']
+seo_topics.each do |topic|
+  Topic.create!(
+    name: "#{topic}",
+    course: Course.find_by('SEO crash course for business owners'),
+  )
 end
 
-# Create Lessons
-[web_dev, seo].each do |course|
-  course.topics.each do |topic|
-    6.times do |i|
-      Lesson.create!(
-        name: Faker::Movies::HitchhikersGuideToTheGalaxy.location,
-        description: Faker::Movies::HitchhikersGuideToTheGalaxy.quote,
-        order: i + 1,
-        topic: topic
-      )
-    end
-  end
+# Create lessons for SEO course
+Lesson.create!(
+  name: 'Introduction',
+  description: nil,
+  topic: Topic.find_by(name: 'Introduction')
+)
+
+seo_lessons_on_page = ['Permalinks, alt tags', 'Page title, meta description', 'How to change meta descriptions in Wordpress', 'Content matters', 'Structuring the content', 'Links', 'Q&A session On-page SEO', ]
+
+seo_lessons_on_page.each do |lesson|
+  Lesson.create!(
+    name: lesson,
+    description: nil,
+    topic: Topic.find_by(name: 'On-page SEO')
+  )
 end
+
+seo_lessons_off_page = ['Backlinks', 'Domain authority']
+
+seo_lessons_off_page.each do |lesson|
+  Lesson.create!(
+    name: lesson,
+    description: nil,
+    topic: Topic.find_by(name: 'Off-page SEO')
+  )
+end
+
+Lesson.create!(
+  name: 'Technical SEO',
+  description: nil,
+  topic: Topic.find_by(name: 'Technical SEO')
+)
+
+Lesson.create!(
+  name: 'Google Analytics',
+  description: nil,
+  topic: Topic.find_by(name: 'Google Analytics')
+)
+
+Lesson.create!(
+  name: 'Keywords research',
+  description: nil,
+  topic: Topic.find_by(name: 'Keywords research')
+)
+
+Lesson.create!(
+  name: 'Q&A session',
+  description: nil,
+  topic: Topic.find_by(name: 'Q&A')
+)
+
+# Create topics for Web dev course
+web_dev_topics = ['Course introduction', 'Introduction to the web development']
+web_dev_topics.each do |topic|
+  Topic.create!(
+    name: "#{topic}",
+    course: Course.find_by(name: 'Web development for moms in 60 days'),
+  )
+end
+
+# Create lessons for Web dev course
+Lesson.create!(
+  name: 'Introduction',
+  description: nil,
+  topic: Topic.find_by(name: 'Course introduction')
+)
+
+web_dev_lessons_introduction = ['Files', 'HTML and CSS Introduction']
+
+web_dev_lessons_introduction.each do |lesson|
+  Lesson.create!(
+    name: lesson,
+    description: nil,
+    topic: Topic.find_by(name: 'Introduction to the web development')
+  )
+end
+
 
 # Create Materials
 VideoMaterial.create!(body: 'https://mltcwebdev.s3-eu-west-1.amazonaws.com/web-dev-1/WD1_02_HTML_CSS_Intro', lesson: Lesson.first, order: 1)
