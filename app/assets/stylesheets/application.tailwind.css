@@ -32,6 +32,6 @@
   }
 
   .bottom-red-border, .bottom-red-border:hover {
-    @apply border-b-2 border-red-400 self-end decoration-none;
+    @apply border-b-2 border-red-400 self-end;
   }
 }
