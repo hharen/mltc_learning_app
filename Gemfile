@@ -7,7 +7,7 @@ ruby `cat .ruby-version`.chomp
 
 gem 'devise', '~> 4.8'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
-gem "rails", "~> 7.0.0.rc1"
+gem "rails", "~> 7.0.2.2"
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.1'
 # Use Puma as the app server
