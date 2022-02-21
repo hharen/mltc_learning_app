@@ -63,11 +63,14 @@ heroku git:remote --remote heroku-staging -a project-staging
 rails s
 ```
 
-<!-- ## Deploy
+## Deploy
 
-### With Heroku pipeline (recommended)
+### With Heroku pipeline
 
-Push to Heroku staging remote:
+#### Run production console from command line
+heroku run --app=mltc-learning-app rails c
+
+<!-- Push to Heroku staging remote:
 
 ```shell
 git push heroku-staging
