@@ -4,6 +4,7 @@ class Material < ApplicationRecord
   default_scope { order(:order) }
 
   belongs_to :lesson
+  has_one :topic, through: :lesson
 
   validates :order, :body, :type, presence: true
 

@@ -12,5 +12,5 @@ div class='md:flex'
         div.btn.btn-red
           = link_to 'Course overview', course_path(course)
         - if user_signed_in?
-          div.btn.btn-red-outline
-            = link_to 'Continue learning', lesson_path(1)
+          / div.btn.btn-red-outline
+          /   = link_to 'Continue learning', topic_lesson_path(lesson.topic, lesson)

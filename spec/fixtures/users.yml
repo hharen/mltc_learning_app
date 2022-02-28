@@ -1,6 +1,13 @@
 DEFAULTS: &DEFAULTS
   encrypted_password: "$2a$04$h0azfxASzw90XaKP/ALywO2wUuEVnLP0CNo/Su4taxd6DaNl198gy" # iForgot
 
+admin:
+  <<: *DEFAULTS
+  first_name: Hana
+  last_name: Harencarova
+  email: hana@mltcstudents.com
+  is_admin: true
+
 anne-france:
   <<: *DEFAULTS
   first_name: Anne-France
