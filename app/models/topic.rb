@@ -9,7 +9,7 @@ class Topic < ApplicationRecord
 
   validates :name, presence: true
 
-  before_save do |topic|
+  before_validation do |topic|
     Reorderer.new(topic, :course_id).reorder!
   end
 

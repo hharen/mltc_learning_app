@@ -10,7 +10,7 @@ class Lesson < ApplicationRecord
 
   validates :name, presence: true
 
-  before_save do |lesson|
+  before_validation do |lesson|
     Reorderer.new(lesson, :topic_id).reorder!
   end
 
