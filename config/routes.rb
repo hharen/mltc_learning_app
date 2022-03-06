@@ -12,9 +12,10 @@ Rails.application.routes.draw do
   end
 
   resources :courses, only: %i[index show]
+  resources :lessons, only: [:show]
 
   resources :topics, only: %i[index show] do
-    resources :lessons, only: [:show] do
+    resources :lessons do
       resources :materials, except: [:show]
     end
   end
