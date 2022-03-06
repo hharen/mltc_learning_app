@@ -11,13 +11,36 @@ class MaterialsController < AdminController
 
   def create
     @material = Material.new(material_params)
-    redirect_to topic_lesson_materials_path if @material.save
+    if @material.save
+      redirect_to topic_lesson_materials_path
+    else
+      render 'new'
+    end
+  end
+
+  def edit
+    @material = Material.find(params[:id])
   end
 
   def update
+    material = Material.find(params[:id])
+
+    if material.update(material_params)
+      redirect_to topic_lesson_materials_path
+    else
+      render 'edit'
+    end
   end
 
   def destroy
+    material = Material.find(params[:id])
+
+    if material.destroy
+      flash[:success] = 'The material was removed.'
+    else
+      flash[:error] = "Unfortunately, the material couldn't be deleted."
+    end
+    redirect_to topic_lesson_materials_path
   end
 
   private
