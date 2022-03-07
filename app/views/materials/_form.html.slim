@@ -1,4 +1,4 @@
-= form_for @material, url: topic_lesson_materials_path(@material.topic, @material.lesson, @material) do |f|
+= form_for @material, url: lesson_materials_path(@material.lesson, @material) do |f|
   p 
     = f.label :type
     = f.collection_select :type, ['PresentationMaterial', 'TextMaterial', 'TaskMaterial', 'ResourceMaterial', 'VideoMaterial'], :to_s, :to_s
