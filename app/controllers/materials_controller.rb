@@ -5,14 +5,23 @@ class MaterialsController < AdminController
     @materials = Material.where(lesson_id: params[:lesson_id])
     @lesson_name = Lesson.find(params[:lesson_id]).name
     @material = Material.new(lesson_id: params[:lesson_id])
+    @path = new_lesson_material_path
   end
 
   def new
     @material = Material.new(lesson_id: params[:lesson_id])
+    @path = new_lesson_material_path
   end
 
   def create
-    @material = Material.new(material_params)
+    @material = Material.new(type: params[:material][:type], lesson_id: params[:material][:lesson_id])
+    # binding.pry
+    if ['TextMaterial', 'TaskMaterial', 'ResourceMaterial'].include?(@material.type)
+      @material.body = params[:material][:body_rich_text]
+    else
+      @material.body = params[:material][:body_plain]
+    end
+
     if @material.save
       redirect_to lesson_materials_path(@material.lesson, @material)
     else
@@ -22,10 +31,12 @@ class MaterialsController < AdminController
 
   def edit
     @material = Material.find(params[:id])
+    @path = material_path(@material)
   end
 
   def update
     material = Material.find(params[:id])
+    @path = material_path(material)
 
     if material.update(material_params)
       redirect_to lesson_materials_path(material.lesson, material)
