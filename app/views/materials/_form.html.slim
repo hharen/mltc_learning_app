@@ -1,0 +1,14 @@
+= form_for @material, url: lesson_materials_path(@material.lesson, @material) do |f|
+  p 
+    = f.label :type
+    = f.collection_select :type, ['PresentationMaterial', 'TextMaterial', 'TaskMaterial', 'ResourceMaterial', 'VideoMaterial'], :to_s, :to_s
+  p
+    = f.label :body 
+    = f.text_field :body 
+  p
+    = f.label :order
+    = f.text_field :order
+
+  = f.hidden_field :lesson_id, value: @material.lesson_id
+
+  p = f.submit

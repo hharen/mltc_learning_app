@@ -1,0 +1,9 @@
+h1 = "Materials for #{@lesson_name}"
+= render 'form'
+
+- @materials.each_with_index do |material, index|
+  h2
+    span = "#{index + 1}. "
+    span = link_to material.type, edit_material_path(material)
+  p = material.body
+  p = button_to 'Delete', material_path(material), method: :delete, confirm: "Are you sure?"

@@ -12,11 +12,15 @@ Rails.application.routes.draw do
   end
 
   resources :courses, only: %i[index show]
+  resources :topics, only: %i[index show]
   resources :lessons, only: [:show]
+  resources :lessons do
+    resources :materials, shallow: true
+  end
+
   get '/my_courses' => 'subscriptions#index', :as => :user_root
   resources :subscriptions, only: %i[index update]
   resources :users, only: %i[edit update]
-
 
   # FIX ME
   # devise_for :users, path: '/', path_names: { sign_in: 'login', sign_out: 'logout' }
