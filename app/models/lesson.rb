@@ -23,7 +23,7 @@ class Lesson < ApplicationRecord
   end
 
   def completed?(subscription)
-    subscription.completed_lessons[id.to_s] == 'true'
+    subscription.completed_lessons[id.to_s] == 'true' unless subscription.nil?
   end
 
   private
