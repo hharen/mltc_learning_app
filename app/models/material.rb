@@ -13,6 +13,6 @@ class Material < ApplicationRecord
   end
 
   def show_body
-    body
+    body.to_trix_html
   end
 end

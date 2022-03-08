@@ -1,10 +1,13 @@
-= form_for @material, url: lesson_materials_path(@material.lesson, @material) do |f|
+= form_for @material, as: :material, url: @path do |f|
   p 
     = f.label :type
-    = f.collection_select :type, ['PresentationMaterial', 'TextMaterial', 'TaskMaterial', 'ResourceMaterial', 'VideoMaterial'], :to_s, :to_s
+    = f.collection_select :type, ['TextMaterial', 'TaskMaterial', 'ResourceMaterial', 'PresentationMaterial', 'VideoMaterial'], :to_s, :to_s
   p
-    = f.label :body 
-    = f.text_field :body 
+    = f.label :body
+    = f.rich_text_area :body_rich_text, value: @material.body
+  p
+    = f.label :body
+    = f.text_field :body_plain, value: @material.body
   p
     = f.label :order
     = f.text_field :order

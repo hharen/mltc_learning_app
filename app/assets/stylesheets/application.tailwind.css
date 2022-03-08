@@ -35,3 +35,4 @@
     @apply border-b-2 border-red-400 self-end;
   }
 }
+@import 'actiontext.css';
