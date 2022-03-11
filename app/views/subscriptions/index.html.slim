@@ -1,4 +1,9 @@
 h1 My Courses
+- if @courses.nil?
+  p
+    = ":( you don't have any courses yet, get one at"
+    a href='https://www.momslearntocode.com' target='_blank'
+      = " Moms Learn to Code."
 div.flex
   - @subscriptions.each do |subscription|
     - course = subscription.course
