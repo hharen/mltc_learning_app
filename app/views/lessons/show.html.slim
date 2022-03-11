@@ -4,7 +4,7 @@ div class='mb-8 p-2 w-full flex flex-wrap bg-grey-light'
     h2 = @lesson.course.name
     - @lesson.course.topics.each_with_index do |topic, index_topic|
       - index_topic += 1
-      h3.show-hide.flex.justify-between data-index-topic="#{index_topic}"
+      h3.show-hide.flex.justify-between.pointer data-index-topic="#{index_topic}"
         div
           span.text-red-500 >
           = "#{topic.order}. #{topic.name}"
@@ -24,7 +24,7 @@ div class='mb-8 p-2 w-full flex flex-wrap bg-grey-light'
 
   div class='w-full lg:w-2/3 bg-grey md:pl-2 lesson'
     h1.flex.justify-between
-      span= "#{@lesson.topic.order}.#{@lesson.order} #{@lesson.name}"
+      span = "#{@lesson.topic.order}.#{@lesson.order} #{@lesson.name}"
       - if @lesson.completed?(@subscription)
         span.text-green-200  ✓
       - else
