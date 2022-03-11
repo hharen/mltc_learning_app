@@ -41,12 +41,10 @@ div class='mb-8 p-2 w-full flex flex-wrap bg-grey-light'
       = render 'complete_reset'
 
     div.flex.justify-between.mt-8
-      = unless @lesson.order == Lesson.where(topic: @lesson.topic).first.order
-      = link_to t('lessons.previous'), @lesson.previous, class: 'bottom-red-border'
+      = link_to t('lessons.previous'), @lesson.previous, class: "bottom-red-border #{@lesson.first? ? 'invisible' : ''}"
       span.px-2.hidden class="sm:flex"
         = render 'complete_reset'
-      = unless @lesson.order == Lesson.where(topic: @lesson.topic).last.order
-      = link_to t('lessons.next'), @lesson.next, class: 'bottom-red-border'
+      = link_to t('lessons.next'), @lesson.next, class: "bottom-red-border #{@lesson.last? ? 'invisible' : ''}"
 
 javascript:
   document.querySelectorAll(".show-hide").forEach(item => {

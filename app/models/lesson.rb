@@ -26,6 +26,14 @@ class Lesson < ApplicationRecord
     subscription.completed_lessons[id.to_s] == 'true' unless subscription.nil?
   end
 
+  def first?
+    order == Lesson.where(topic: topic).first.order
+  end
+
+  def last?
+    order == Lesson.where(topic: topic).last.order
+  end
+
   private
 
   def find_neighbouring_lesson(direction)
