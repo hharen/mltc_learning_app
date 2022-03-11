@@ -30,20 +30,6 @@ h1, h2 {
   padding: 20px 10px 3px;
 }
 
-@media only screen and (min-width: 768px) {
-  h1 {
-    font-size: 2rem;
-  }
-
-  h2 {
-    font-size: 1.5rem;
-  }
-
-  h3 {
-    font-size: 1.2rem;
-  }
-}
-
 .lesson a {
   color: $primary-color;
 }
@@ -88,4 +74,31 @@ ol {
 
 .pointer {
   cursor: pointer;
+}
+
+// Presentation links
+.presentation {
+  width: 100%;
+  min-height: 250px;
+}
+
+// Medium and large screens
+
+@media only screen and (min-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+  }
+
+  .presentation {
+    min-height: auto;
+    width: 600px;
+  }
 }
