@@ -5,6 +5,8 @@ class Subscription < ApplicationRecord
   belongs_to :course
   has_many :lessons, through: :course
 
+  validates :user, uniqueness: true
+
   def continue_lesson
     uncompleted_lesson_ids.first
   end
