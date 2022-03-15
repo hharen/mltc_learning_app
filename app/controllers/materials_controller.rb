@@ -61,7 +61,7 @@ class MaterialsController < AdminController
   end
 
   def resolve_body(material)
-    material.body = if %w[TextMaterial TaskMaterial ResourceMaterial].include?(material.type)
+    material.body = if %w[TextMaterial TaskMaterial ResourceMaterial ToolMaterial].include?(material.type)
                       params[:material][:body_rich_text]
                     else
                       params[:material][:body_plain]

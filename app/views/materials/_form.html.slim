@@ -1,7 +1,7 @@
 = form_for @material, as: :material, url: @path do |f|
   p 
     = f.label :type
-    = f.collection_select :type, ['TextMaterial', 'TaskMaterial', 'ResourceMaterial', 'PresentationMaterial', 'VideoMaterial'], :to_s, :to_s
+    = f.collection_select :type, ['TextMaterial', 'TaskMaterial', 'ResourceMaterial', 'PresentationMaterial', 'VideoMaterial', 'ToolMaterial'], :to_s, :to_s
   p
     = f.label :body
     = f.rich_text_area :body_rich_text, value: @material.body
