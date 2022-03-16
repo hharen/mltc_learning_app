@@ -42,14 +42,12 @@ class Lesson < ApplicationRecord
     new_lesson_index = lesson_index + direction
 
     return nil if new_lesson_index.negative?
-    return nil if (new_lesson_index) > (lessons_ids.count - 1)
+    return nil if new_lesson_index > lessons_ids.count - 1
 
     get_lesson(lessons_ids, new_lesson_index)
   end
 
   def get_lesson(lessons_ids, new_lesson_index)
-    Lesson.find(lessons_ids[
-      new_lesson_index.clamp(0, lessons_ids.length - 1)
-    ])
+    Lesson.find(lessons_ids[new_lesson_index])
   end
 end

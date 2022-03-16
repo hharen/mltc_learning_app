@@ -5,7 +5,7 @@ class Subscription < ApplicationRecord
   belongs_to :course
   has_many :lessons, through: :course
 
-  validates :user, uniqueness: true
+  validates :course, uniqueness: { scope: :user, message: 'You already have this course.' }
 
   def continue_lesson
     uncompleted_lesson_ids.first
