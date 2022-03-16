@@ -3,7 +3,7 @@
 class Lesson < ApplicationRecord
   default_scope { order(:order) }
 
-  has_many :materials
+  has_many :materials, dependent: :destroy
   belongs_to :topic
 
   delegate :course, to: :topic
@@ -15,24 +15,39 @@ class Lesson < ApplicationRecord
   end
 
   def previous
-    find_neighbouring_lesson(- 1)
+    neighbouring_lesson(- 1)
   end
 
   def next
-    find_neighbouring_lesson(1)
+    neighbouring_lesson(1)
   end
 
   def completed?(subscription)
     subscription.completed_lessons[id.to_s] == 'true' unless subscription.nil?
   end
 
+  def first?
+    neighbouring_lesson(-1).nil?
+  end
+
+  def last?
+    neighbouring_lesson(1).nil?
+  end
+
   private
 
-  def find_neighbouring_lesson(direction)
+  def neighbouring_lesson(direction)
     lessons_ids = course.topics.map(&:lessons).flatten.pluck(:id)
     lesson_index = lessons_ids.index(id)
-    Lesson.find(lessons_ids[
-      (lesson_index + direction).clamp(0, lessons_ids.length - 1)
-    ])
+    new_lesson_index = lesson_index + direction
+
+    return nil if new_lesson_index.negative?
+    return nil if new_lesson_index > lessons_ids.count - 1
+
+    get_lesson(lessons_ids, new_lesson_index)
+  end
+
+  def get_lesson(lessons_ids, new_lesson_index)
+    Lesson.find(lessons_ids[new_lesson_index])
   end
 end

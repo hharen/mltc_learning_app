@@ -11,15 +11,15 @@
 //=require_self
 
 h1 {
-  font-size: 1.8em;
+  font-size: 1.5rem;
 }
 
 h2 {
-  font-size: 1.5em;
+  font-size: 1.2rem;
 }
 
 h3 {
-  font-size: 1.3em;
+  font-size: 1.1rem;
 }
 
 h1, h2, h3, h4, p, ul {
@@ -28,20 +28,6 @@ h1, h2, h3, h4, p, ul {
 
 h1, h2 {
   padding: 20px 10px 3px;
-}
-
-@media only screen and (min-width: 768px) {
-  h1 {
-    font-size: 3em;
-  }
-
-  h2 {
-    font-size: 2em;
-  }
-
-  h3 {
-    font-size: 1.5em;
-  }
 }
 
 .lesson a {
@@ -80,4 +66,39 @@ input[type=submit] {
 ol {
   list-style: decimal;
   margin-left: 25px;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+// Presentation links
+.presentation {
+  width: 100%;
+  min-height: 250px;
+}
+
+// Medium and large screens
+
+@media only screen and (min-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+  }
+
+  .presentation {
+    min-height: auto;
+    width: 600px;
+  }
 }
