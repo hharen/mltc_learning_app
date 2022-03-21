@@ -12,6 +12,9 @@ class Material < ApplicationRecord
     Reorderer.new(material, :lesson_id, Material).reorder!
   end
 
+  def title
+  end
+
   def show_body
     body.to_trix_html
   end
