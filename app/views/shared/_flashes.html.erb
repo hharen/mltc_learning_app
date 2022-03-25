@@ -1,5 +1,5 @@
 <% flash.each do |name, msg| -%>
   <%= content_tag :div do %>
-    <%= content_tag :span, msg, class: ['flash', name] %>
+    <%= content_tag :span, msg.html_safe, class: ['flash', name] %>
   <% end %>
 <% end -%>
