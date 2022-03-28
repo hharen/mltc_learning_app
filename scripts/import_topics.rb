@@ -1,4 +1,4 @@
-lines = File.read("topics.csv").split("***")
+lines = File.read("./scripts/topics.csv").split("***")
 
 lines[1..-1].each do |line|
   row = line.split("???")
