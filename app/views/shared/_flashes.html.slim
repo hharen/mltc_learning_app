@@ -1,3 +1,6 @@
 - flash.each do |name, message|
   = content_tag :div do
-    = content_tag :span, message.html_safe, class: ['flash', name]
+    - if name == 'notice_with_url'
+      = content_tag :span, message.html_safe, class: ['flash', name]
+    - else
+      = content_tag :span, message, class: ['flash', name]

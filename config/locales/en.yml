@@ -40,4 +40,4 @@ en:
     ask_slack: 'Ask on Slack'
     previous: '< Previous lesson'
     next: 'Next lesson >'
-    
+    get_course_html: "You don't own the %{course_name}, go to %{href} to get it."
