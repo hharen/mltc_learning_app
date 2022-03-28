@@ -50,7 +50,7 @@ Rails.application.configure do
 
   # Include generic and useful information about system operation, but avoid logging too much
   # information to avoid inadvertent exposure of personally identifiable information (PII).
-  config.log_level = :info
+  config.log_level = :warn # not the expose token sent by Devise when recovering a password
 
   # Prepend all log lines with the following tags.
   config.log_tags = [ :request_id ]
@@ -119,4 +119,17 @@ Rails.application.configure do
   # config.active_record.database_selector = { delay: 2.seconds }
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:              'smtp.m1.websupport.sk',
+    port:                 465,
+    domain:               'momslearntocode.com',
+    user_name:            'ENV["MLTC_USERNAME"]',
+    password:             'ENV["MLTC_PASSWORD"]',
+    authentication:       'plain',
+    enable_starttls_auto: true,
+    open_timeout:         5,
+    read_timeout:         5
+  }
 end
