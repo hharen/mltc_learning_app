@@ -57,6 +57,7 @@ heroku git:remote -a project
 heroku git:remote --remote heroku-staging -a project-staging
 ```
  -->
+
 ## Serve
 
 ```shell
@@ -67,8 +68,12 @@ rails s
 
 ### With Heroku pipeline
 
+## Heroku
 #### Run production console from command line
-heroku run --app=mltc-learning-app rails c
+```heroku run --app=mltc-learning-app rails c```
+
+#### Run scripts from command line
+```heroku run bundle exec rails runner ./scripts/YOUR_SCRIPT.rb -a mltc-learning-app```
 
 <!-- Push to Heroku staging remote:
 
