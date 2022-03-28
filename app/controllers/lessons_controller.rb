@@ -7,6 +7,11 @@ class LessonsController < ApplicationController
   def show
     @lesson = Lesson.find(params[:id])
     @subscription = current_user.subscriptions.where(course: @lesson.course).first
-    @completed = @lesson.completed?(@subscription)
+    if @subscription.nil?
+      flash[:notice_with_url] = t('lessons.get_course_html', course_name: @lesson.course.name, href: helpers.link_to('Moms Learn to Code', 'https://www.momslearntocode.com'))
+      redirect_to subscriptions_path
+    else
+      @completed = @lesson.completed?(@subscription)
+    end
   end
 end
