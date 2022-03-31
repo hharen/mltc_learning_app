@@ -91,8 +91,8 @@ Rails.application.configure do
     authentication:       :plain,
     tls:                  true,
     enable_starttls_auto: true,
-    open_timeout:         250,
-    read_timeout:         250
+    open_timeout:         25,
+    read_timeout:         25
   }
   config.action_mailer.default_url_options = {:host =>'localhost:3000'}
 end
