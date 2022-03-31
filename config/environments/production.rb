@@ -129,7 +129,7 @@ Rails.application.configure do
     password:             'ENV["MLTC_PASSWORD"]',
     authentication:       'plain',
     enable_starttls_auto: true,
-    open_timeout:         5,
-    read_timeout:         5
+    open_timeout:         250,
+    read_timeout:         250
   }
 end
