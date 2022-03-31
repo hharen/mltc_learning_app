@@ -120,16 +120,21 @@ Rails.application.configure do
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
 
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default_options = {from: 'hi@momslearntocode.com'}
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address:              'smtp.m1.websupport.sk',
-    port:                 465,
+    port:                 '465',
     domain:               'momslearntocode.com',
-    user_name:            'ENV["MLTC_USERNAME"]',
-    password:             'ENV["MLTC_PASSWORD"]',
-    authentication:       'plain',
+    user_name:            'hi@momslearntocode.com',
+    password:             ENV['SMTP_PASSWORD'],
+    authentication:       :plain,
+    tls:                  true,
     enable_starttls_auto: true,
-    open_timeout:         5,
-    read_timeout:         5
+    open_timeout:         25,
+    read_timeout:         25
   }
+  config.action_mailer.default_url_options = {:host =>'mltc-learning-app.herokuapp.com'}
 end
