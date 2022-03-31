@@ -36,6 +36,8 @@ en:
     attributes:
       user:
         new_password: 'New password'
+  devise:
+    password_reset: 'Check your email to reset your password.'
   lessons:
     ask_slack: 'Ask on Slack'
     previous: '< Previous lesson'
