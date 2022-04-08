@@ -74,6 +74,8 @@ rails s
 
 #### Run scripts from command line
 ```heroku run bundle exec rails runner ./scripts/YOUR_SCRIPT.rb -a mltc-learning-app```
+```heroku config:add MLTC_USERNAME=USERNAME --app=mltc-learning-app```
+```heroku config:add MLTC_PASSWORD=PASSWORD --app=mltc-learning-app```
 
 <!-- Push to Heroku staging remote:
 
