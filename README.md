@@ -69,6 +69,8 @@ rails s
 ### With Heroku pipeline
 
 ## Heroku
+```git push heroku main```
+
 #### Run production console from command line
 ```heroku run --app=mltc-learning-app rails c```
 
