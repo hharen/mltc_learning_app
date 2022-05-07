@@ -8,7 +8,7 @@ RSpec.describe TextMaterial do
   let(:material) { materials(:text_material) }
 
   describe '#title' do
-    it 'returns correct title' do
+    it 'does not return any title' do
       expect(material.title).to be_nil
     end
   end
