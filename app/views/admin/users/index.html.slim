@@ -1,7 +1,8 @@
 h1 Users
 = link_to 'New student', new_admin_user_path
 - @users.each do |user|
-  p.font-extrabold
+  p
+    = "Id: #{user.id} "
     = "#{user.name} | #{user.email}"
   p
     - user.courses.each do |course|
