@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     @user = current_user
 
     if @user.update(user_params)
-      redirect_to edit_user_path(@user)
+      redirect_to edit_admin_user_path(@user)
     else
       render :edit, flash: { error: @user.errors.messages }
     end
