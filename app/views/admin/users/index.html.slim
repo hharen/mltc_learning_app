@@ -6,5 +6,8 @@ h1 Users
     = "#{user.name} | #{user.email}"
   p
     - user.courses.each do |course|
-      = "#{course.name} | "
+      p
+        = "#{course.name} | "
+        = "#{course.last_completed_lesson(user: user)&.order}. "
+        = course.last_completed_lesson(user: user)&.name
   br
