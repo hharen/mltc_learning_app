@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   root to: 'courses#index'
 
   namespace :admin do
-    resources :users, only: [:index, :new]
+    resources :users, only: [:index, :new, :create]
   end
 
   resources :courses, only: %i[index show]
@@ -21,7 +21,4 @@ Rails.application.routes.draw do
   get '/my_courses' => 'subscriptions#index', :as => :user_root
   resources :subscriptions, only: %i[index update]
   resources :users, only: %i[edit update]
-
-  # FIX ME
-  # devise_for :users, path: '/', path_names: { sign_in: 'login', sign_out: 'logout' }
 end
