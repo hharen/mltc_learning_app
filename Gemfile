@@ -42,7 +42,7 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem 'bootsnap', '>= 1.4.4', require: false
 
 group :development, :test do
-  gem 'faker', '~> 2.19'
+  gem 'faker', '~> 3.0'
   gem 'net-smtp', require: false
   gem 'pry', '~> 0.14.1'
   gem 'rspec-rails', '~> 5.0', '>= 5.0.2'
