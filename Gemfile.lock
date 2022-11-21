@@ -102,7 +102,7 @@ GEM
     bindex (0.8.1)
     bootsnap (1.13.0)
       msgpack (~> 1.2)
-    brakeman (5.3.1)
+    brakeman (5.4.0)
     builder (3.2.4)
     capybara (3.38.0)
       addressable
@@ -327,7 +327,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap (>= 1.4.4)
-  brakeman (~> 5.1, >= 5.1.2)
+  brakeman (~> 5.4)
   capybara (>= 3.26)
   debug (>= 1.0.0)
   devise (~> 4.8.1)
