@@ -62,7 +62,7 @@ group :development do
   gem 'listen', '~> 3.3'
   gem 'rack-mini-profiler', '~> 3.0'
   gem 'rails_real_favicon', '~> 0.1.1'
-  gem 'rubocop', '~> 1.22', '>= 1.22.1', require: false
+  gem 'rubocop', '~> 1.40', require: false
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler", ">= 2.3.3"
 
