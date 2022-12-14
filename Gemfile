@@ -54,7 +54,7 @@ group :development, :test do
 end
 
 group :development do
-  gem 'brakeman', '~> 5.1', '>= 5.1.2'
+  gem 'brakeman', '~> 5.4'
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 4.1.0'
   # Display performance information such as SQL time and flame graphs for each request in your browser.
@@ -62,7 +62,7 @@ group :development do
   gem 'listen', '~> 3.3'
   gem 'rack-mini-profiler', '~> 3.0'
   gem 'rails_real_favicon', '~> 0.1.1'
-  gem 'rubocop', '~> 1.22', '>= 1.22.1', require: false
+  gem 'rubocop', '~> 1.40', require: false
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler", ">= 2.3.3"
 
