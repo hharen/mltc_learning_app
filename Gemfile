@@ -46,7 +46,7 @@ group :development, :test do
   gem 'net-smtp', require: false
   gem 'pry', '~> 0.14.1'
   gem 'rspec-rails', '~> 6.0'
-  gem 'rubocop-rspec', '~> 2.7', require: false
+  gem 'rubocop-rspec', '~> 2.16', require: false
   gem 'rubocop-rails', '~> 2.17', require: false
   gem 'simplecov', '~> 0.21.2', require: false
   # See https://edgeguides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
