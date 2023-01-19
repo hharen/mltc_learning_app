@@ -136,5 +136,5 @@ Rails.application.configure do
     open_timeout:         250,
     read_timeout:         250
   }
-  config.action_mailer.default_url_options = {:host =>'mltc-learning-app.herokuapp.com'}
+  config.action_mailer.default_url_options = {:host =>'learn.momslearntocode.com'}
 end
