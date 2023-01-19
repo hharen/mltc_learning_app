@@ -1,6 +1,6 @@
 # README
 
-Learning App for [Moms Learn to Code](https://www.momslearntocode.com)
+Learning App for [Moms Learn to Code](https://www.momslearntocode.com), find it at https://learn.momslearntocode.com.
 
 [![Rails Style Guide](https://img.shields.io/badge/code_style-rubocop-brightgreen.svg)](https://github.com/rubocop/rubocop-rails)
 
