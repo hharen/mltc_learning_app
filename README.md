@@ -48,15 +48,6 @@ See [config/application.yml.sample](https://github.com/juliendargelos/project/bl
 rails db:create db:migrate db:seed
 ```
 
-### Add heroku remotes
-<!-- 
-Using [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli):
-
-```shell
-heroku git:remote -a project
-heroku git:remote --remote heroku-staging -a project-staging
-```
- -->
 
 ## Serve
 
@@ -66,35 +57,4 @@ rails s
 
 ## Deploy
 
-### With Heroku pipeline
-
-## Heroku
-```git push heroku main```
-
-#### Run production console from command line
-```heroku run --app=mltc-learning-app rails c```
-
-#### Run scripts from command line
-```heroku run bundle exec rails runner ./scripts/YOUR_SCRIPT.rb -a mltc-learning-app```
-```heroku config:add MLTC_USERNAME=USERNAME --app=mltc-learning-app```
-```heroku config:add MLTC_PASSWORD=PASSWORD --app=mltc-learning-app```
-
-<!-- Push to Heroku staging remote:
-
-```shell
-git push heroku-staging
-```
-
-Go to the Heroku Dashboard and [promote the app to production](https://devcenter.heroku.com/articles/pipelines) or use Heroku CLI:
-
-```shell
-heroku pipelines:promote -a project-staging
-```
-
-### Directly to production (not recommended)
-
-Push to Heroku production remote:
-
-```shell
-git push heroku
-``` -->
+### With fly
