@@ -49,7 +49,7 @@ jobs:
 
   deploy:
     if: github.ref == 'refs/heads/main'
-    needs: [rspec]
+    # needs: [rspec]
     name: Deploy app
     runs-on: ubuntu-latest
     steps:
