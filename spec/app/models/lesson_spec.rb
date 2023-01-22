@@ -18,8 +18,8 @@ RSpec.describe Lesson do
     end
 
     context 'when it is the first lesson' do
-      it 'returns itself' do
-        expect(lesson1.previous).to eq(lesson1)
+      it 'returns nil' do
+        expect(lesson1.previous).to eq(nil)
       end
     end
   end
@@ -32,8 +32,8 @@ RSpec.describe Lesson do
     end
 
     context 'when it is the last lesson' do
-      it 'returns itself' do
-        expect(lesson4.next).to eq(last_lesson5)
+      it 'returns nil' do
+        expect(last_lesson5.next).to eq(nil)
       end
     end
   end

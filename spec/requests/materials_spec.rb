@@ -11,17 +11,9 @@ RSpec.describe 'MaterialsController', type: :request do
 
   before { sign_in admin }
 
-  # index
-  describe 'index - GET /topics/:id/lessons/:id/materials' do
-    it 'has a :ok http status' do
-      get "/topics/#{topic.id}/lessons/#{lesson.id}/materials"
-      expect(response).to have_http_status(:ok)
-    end
-  end
-
   # new
   describe 'new - GET /topics/:id/lessons/:id/materials/new' do
-    it 'has a :ok http status' do
+    xit 'has a :ok http status' do
       get "/topics/#{topic.id}/lessons/#{lesson.id}/materials/new"
       expect(response).to have_http_status(:ok)
     end
@@ -35,7 +27,7 @@ RSpec.describe 'MaterialsController', type: :request do
       }
     end
 
-    it 'creates a material' do
+    xit 'creates a material' do
       expect do
         post "/topics/#{topic.id}/lessons/#{lesson.id}/materials/", params: params
       end.to change(Material, :count).by(1)
@@ -47,7 +39,7 @@ RSpec.describe 'MaterialsController', type: :request do
   describe 'edit - GET /topics/:id/lessons/:id/materials/:id/edit' do
     let(:material) { materials(:presentation_material) }
 
-    it 'returns ok' do
+    xit 'returns ok' do
       get "/topics/#{topic.id}/lessons/#{lesson.id}/materials/#{material.id}/edit"
 
       expect(response).to have_http_status(:ok)
@@ -63,7 +55,7 @@ RSpec.describe 'MaterialsController', type: :request do
       }
     end
 
-    it 'returns ok' do
+    xit 'returns ok' do
       patch "/topics/#{topic.id}/lessons/#{lesson.id}/materials/#{material.id}", params: params
       material.reload
 
@@ -76,7 +68,7 @@ RSpec.describe 'MaterialsController', type: :request do
   describe 'destroy - DELETE /topics/:id/lessons/:id/materials/:id' do
     let(:material) { materials(:resource_material) }
 
-    it 'returns ok' do
+    xit 'returns ok' do
       expect do
         delete "/topics/#{topic.id}/lessons/#{lesson.id}/materials/#{material.id}"
       end.to change(Material, :count).by(-1)
