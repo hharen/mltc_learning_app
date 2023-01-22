@@ -48,6 +48,7 @@ jobs:
           POSTGRES_PASSWORD: postgres 
 
   deploy:
+    environment: fly-deploy
     if: github.ref == 'refs/heads/main'
     # needs: [rspec]
     name: Deploy app
