@@ -13,7 +13,7 @@ class User < ApplicationRecord
   # devise :database_authenticatable,
   #        :recoverable, :rememberable, :validatable
 
-  validates :first_name, :last_name, :email, presence: true
+  validates :email, presence: true
   validates :email, uniqueness: true, format: { with: /@/, message: 'Please write a valid email address' }
 
   def admin?
