@@ -5,28 +5,28 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.2.2'
 
-gem 'devise', '~> 4.8.1'
+gem 'devise', '~> 4.9', '>= 4.9.2'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem "rails", github: 'rails/rails', branch: 'main'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.1'
 # Use Puma as the app server
-gem 'puma', '~> 6.0'
+gem 'puma', '~> 6.4'
 # Use SCSS for stylesheets
-gem 'sass-rails', '>= 6'
+gem 'sass-rails', '~> 6.0'
 # Use Sass to process CSS
 # gem "sassc-rails", "~> 2.1"
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
-gem "importmap-rails", ">= 0.9.2"
+gem 'importmap-rails', '~> 1.2', '>= 1.2.1'
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
-gem "turbo-rails", ">= 0.9.0"
+gem 'turbo-rails', '~> 1.4'
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
-gem "stimulus-rails", ">= 0.7.3"
+gem 'stimulus-rails', '~> 1.2', '>= 1.2.2'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.7'
-gem 'slim', '~> 4.1'
+gem 'jbuilder', '~> 2.11', '>= 2.11.5'
+gem 'slim', '~> 5.1', '>= 5.1.1'
 # Use Redis adapter to run Action Cable in production
-gem 'redis', '~> 5.0'
+gem 'redis', '~> 5.0', '>= 5.0.7'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
@@ -78,4 +78,4 @@ group :test do
   gem 'webdrivers'
 end
 
-gem "tailwindcss-rails", "~> 2.0"
+gem 'tailwindcss-rails', '~> 2.0', '>= 2.0.30'
