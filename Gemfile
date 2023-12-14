@@ -48,7 +48,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 6.0'
   gem 'rubocop-rspec', '~> 2.7', require: false
   gem 'rubocop-rails', '~> 2.17', require: false
-  gem 'simplecov', '~> 0.21.2', require: false
+  gem 'simplecov', '~> 0.22.0', require: false
   # See https://edgeguides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", ">= 1.0.0", platforms: %i[ mri mingw x64_mingw ]
 end
