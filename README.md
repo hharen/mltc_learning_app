@@ -57,4 +57,5 @@ rails s
 
 ## Deploy
 
-### With fly
+## Fly
+- log into console `bin/rails c -e production`
