@@ -24,7 +24,7 @@ gem 'turbo-rails', '~> 1.4'
 gem 'stimulus-rails', '~> 1.2', '>= 1.2.2'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.11', '>= 2.11.5'
-gem 'slim', '~> 5.1', '>= 5.1.1'
+gem 'slim', '~> 5.2'
 # Use Redis adapter to run Action Cable in production
 gem 'redis', '~> 5.0', '>= 5.0.7'
 # Use Active Model has_secure_password
