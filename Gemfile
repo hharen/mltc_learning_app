@@ -42,25 +42,25 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem 'bootsnap', '>= 1.4.4', require: false
 
 group :development, :test do
-  gem 'faker', '~> 3.0'
+  gem 'faker', '~> 3.5'
   gem 'net-smtp', require: false
-  gem 'pry', '~> 0.14.1'
-  gem 'rspec-rails', '~> 6.0'
-  gem 'rubocop-rspec', '~> 2.7', require: false
-  gem 'rubocop-rails', '~> 2.17', require: false
+  gem 'pry', '~> 0.15.0'
+  gem 'rspec-rails', '~> 7.1'
+  gem 'rubocop-rspec', '~> 3.2', require: false
+  gem 'rubocop-rails', '~> 2.27', require: false
   gem 'simplecov', '~> 0.22.0', require: false
   # See https://edgeguides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", ">= 1.0.0", platforms: %i[ mri mingw x64_mingw ]
 end
 
 group :development do
-  gem 'brakeman', '~> 5.4'
+  gem 'brakeman', '~> 6.2'
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 4.1.0'
   # Display performance information such as SQL time and flame graphs for each request in your browser.
   # Can be configured to work on production as well see: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
-  gem 'listen', '~> 3.3'
-  gem 'rack-mini-profiler', '~> 3.0'
+  gem 'listen', '~> 3.9'
+  gem 'rack-mini-profiler', '~> 3.3'
   gem 'rails_real_favicon', '~> 0.1.1'
   gem 'rubocop', '~> 1.40', require: false
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
