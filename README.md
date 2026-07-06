@@ -57,5 +57,95 @@ rails s
 
 ## Deploy
 
-## Fly
-- log into console `bin/rails c -e production`
+### With fly
+
+```shell
+fly deploy
+```
+
+## Rails Console
+
+### Locally
+
+```shell
+rails console
+```
+
+### On Fly.io (production)
+
+```shell
+fly ssh console --pty -C "/app/bin/rails console"
+```
+
+> The `--pty` flag is required to allocate a pseudo-TTY, otherwise IRB raises an `Errno::ENOTTY` error.
+
+## Lesson Materials
+
+### Editing via the UI (recommended)
+
+You must be logged in as an admin. Navigate to:
+
+```
+/lessons/<lesson_id>/materials/<material_id>/edit
+```
+
+To list all materials for a lesson:
+
+```
+/lessons/<lesson_id>/materials
+```
+
+### Editing via the Rails console
+
+**Find a material:**
+
+```ruby
+# By lesson name
+lesson = Lesson.find_by(name: "HTML and CSS Introduction")
+lesson.materials
+
+# Find a specific task material
+task = lesson.materials.where(type: "TaskMaterial").first
+# or by id
+task = TaskMaterial.find(87)
+```
+
+**View content:**
+
+```ruby
+task.body.to_plain_text
+task.body.body.to_html
+```
+
+**Update content:**
+
+```ruby
+task.body = "<ol><li>New task text</li></ol>"
+task.save!
+```
+
+**Find and replace within existing content:**
+
+```ruby
+new_html = task.body.body.to_html.gsub("old string", "new string")
+task.body = new_html
+task.save!
+```
+
+> Always assign to `task.body =` directly (not `task.body.body =`), otherwise Rails won't detect the change and won't save it.
+
+### Creating a material via the console
+
+```ruby
+lesson = Lesson.find_by(name: "My Lesson")
+TaskMaterial.create!(lesson: lesson, body: "<ol><li>Task 1</li></ol>")
+```
+
+### Adding a course to a user
+
+```ruby
+user = User.find_by(email: "user@example.com")
+user.courses << Course.find_by(title: "Course Title")
+# or explicitly:
+Subscription.create!(user: user, course: Course.find(1))
+```
